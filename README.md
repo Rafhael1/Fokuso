@@ -1,0 +1,1 @@
+To run this app run the code -> yarn run dev

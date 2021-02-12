@@ -12,28 +12,26 @@ app.use(express.json()); //req body
 
 //create a todo
 
-app.post("/todos", async(req,res) => {
+app.post("/todos", async (req, res) => {
     try {
-        console.log(req.body)
-        const {description} = req.body;
-        const newTodo = await pool.query("INSERT INTO workspace_todo(description) VALUES('shit') RETURNING * FROM workspace_todo", 
+      const { description } = req.body;
+      const newTodo = await pool.query(
+        "INSERT INTO workspace_todo (description) VALUES($1) RETURNING *",
         [description]
-        );
-
-        res.json(newTodo.rows[0]);
-
-
+      );
+  
+      res.json(newTodo.rows[0]);
     } catch (err) {
-        console.log(err.message)
+      console.error(err.message);
     }
-});
+  });
 
 
 //get all todos
 
 app.get("/todos", async(req,res) => {
     try {
-        const allTodos = await pool.query("SELECT * FROM todo");
+        const allTodos = await pool.query("SELECT * FROM workspace_todo");
 
         res.json(allTodos.rows)
 
