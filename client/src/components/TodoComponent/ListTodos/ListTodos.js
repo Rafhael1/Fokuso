@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 
+import EditTodo from '../EditTodo/EditTodo';
 
-
-import EditTodo from '../EditTodo/EditTodo'
 
 export default function ListTodos() {
 

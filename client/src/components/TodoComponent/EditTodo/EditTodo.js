@@ -6,7 +6,7 @@ export default function EditTodo({todo}) {
 
     const [description, setDescription] = useState(todo.description);
 
-    const updateTodo = async(e, d) => {
+    const updateTodo = async(e) => {
       e.preventDefault();
       try {
         const body = { description };
