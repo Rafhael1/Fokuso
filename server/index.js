@@ -2,12 +2,24 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const pool = require("./db");
+const quotes = require("./api/quotes")
 
 //middleware
 app.use(cors());
 app.use(express.json()); //req body
 
 //Routes
+
+// quotes api
+
+app.get('/quotes', (req, res) => {
+    try {
+       const response =  quotes[Math.floor(Math.random() * 4)];
+       res.json(response)
+    } catch (error) {
+        console.log(error.message)
+    }
+})
 
 
 //create a todo
