@@ -4,6 +4,7 @@
   <li><a href="#features">Features</a></li>
   <li><a href="#client">Client Side</a></li>
   <li><a href="#server">Server Side</a></li>
+  <li><a href="#install">Installation</a></li>
 </ul>
 
 <h1>About</h1>
@@ -29,7 +30,13 @@ For the front-end I am using React.js (w/ Hooks) and for styling I am using SASS
 </p>
 <h1 id="server" >Server Side</h1>
 <p style="font-size: 20px;">
-For the server side I am using Express.js and Postgres for database.
+For the server side I am using Express.js and PostgreSQL for database.
 </p>
+
+<h1 id="install" >Server Side</h1>
+<p style="font-size: 20px;">
+To use this project on your machine just clone this repository to your machine and run the command -> yarn install (if you use yarn).
+</p>
+
 
 
