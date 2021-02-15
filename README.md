@@ -33,7 +33,7 @@ For the front-end I am using React.js (w/ Hooks) and for styling I am using SASS
 For the server side I am using Express.js and PostgreSQL for database.
 </p>
 
-<h1 id="install" >Server Side</h1>
+<h1 id="install" >Installing</h1>
 <p style="font-size: 20px;">
 To use this project on your machine just clone this repository to your machine and run the command -> yarn install (if you use yarn).
 </p>
