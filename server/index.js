@@ -7,13 +7,12 @@ const quotes = require("./api/quotes")
 
 //middleware
 
-require('dotenv').config();
-
 app.use(cors());
 app.use(express.json()); //req body
 
 
 //Routes
+app.use('/auth', require('./routes/jwtAuth'))
 
 // quotes api
 
