@@ -1,5 +1,5 @@
 //Pages
-import Home from './pages/Home' 
+import Home from './routes/Home' 
 
 function App() {
   return (
