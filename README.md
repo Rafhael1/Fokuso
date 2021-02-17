@@ -1,4 +1,4 @@
-<h1 style="font-size: 60px; text-align: center;" >Fokuso</h1>
+<h1 style="font-size: 80px; text-align: center !important;" >Fokuso</h1>
 
 <ul>
   <li><a href="#features">Features</a></li>
