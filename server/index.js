@@ -14,6 +14,11 @@ app.use(express.json()); //req body
 //Routes
 app.use('/auth', require('./routes/jwtAuth'))
 
+
+// dashboard
+
+app.use('/dashboard', require("./routes/dashboard"))
+
 // quotes api
 
 app.get('/quotes', (req, res) => {
