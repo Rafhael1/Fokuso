@@ -1,20 +1,3 @@
-<head>
- <style style="visibility: 0;">
-   h1 {
-     font-size: 30px;
-   }
-   th {
-     font-size: 24px;
-   }
-   td {
-     font-size: 18px;
-   }
-   p {
-     font-size: 20px;
-   }
- </style>
-</head>
-
 <h1 style="font-size: 80px; text-align: center !important;" >Fokuso</h1>
 
 <ul>
@@ -56,25 +39,29 @@ To use this project on your machine just clone this repository to your machine a
 </p>
 
 <h1 id="packages" >Packages</h1>
-<p>Yarn as the package manager</p>
+<p style="font-size: 20px;">Yarn as the package manager</p>
 <table>
-<tr>
+<tr style="font-size: 26px;">
  <th>Front-end</th>
- <th>Back-end</th>
+ <th >Back-end</th>
 </tr>
-<tr>
+<tr style="font-size: 18px;"
+>
  <td>@node-sass</td>
  <td>Bcrypt</td>
 </tr>
-<tr>
+<tr style="font-size: 18px;"
+>
  <td>React-router</td>
  <td>Concurrently</td>
 </tr>
-<tr>
+<tr style="font-size: 18px;"
+>
  <td>Semantic UI</td>
  <td>Jwt</td>
 </tr>
-<tr>
+<tr style="font-size: 18px;"
+>
  <td>React-toastify</td>
  <td>dotenv</td>
 </tr>
