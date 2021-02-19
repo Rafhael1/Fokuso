@@ -1,5 +1,5 @@
 <head>
- <style>
+ <style style="visibility: 0;">
    h1 {
      font-size: 30px;
    }
