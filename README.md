@@ -1,3 +1,20 @@
+<head>
+ <style>
+   h1 {
+     font-size: 30px;
+   }
+   th {
+     font-size: 24px;
+   }
+   td {
+     font-size: 18px;
+   }
+   p {
+     font-size: 20px;
+   }
+ </style>
+</head>
+
 <h1 style="font-size: 80px; text-align: center !important;" >Fokuso</h1>
 
 <ul>
@@ -38,5 +55,29 @@ For the server side I am using Express.js and PostgreSQL for database.
 To use this project on your machine just clone this repository to your machine and run the command -> yarn install (if you use yarn).
 </p>
 
+<h1 id="packages" >Packages</h1>
+<p>Yarn as the package manager</p>
+<table>
+<tr>
+ <th>Front-end</th>
+ <th>Back-end</th>
+</tr>
+<tr>
+ <td>@node-sass</td>
+ <td>Bcrypt</td>
+</tr>
+<tr>
+ <td>React-router</td>
+ <td>Concurrently</td>
+</tr>
+<tr>
+ <td>Semantic UI</td>
+ <td>Jwt</td>
+</tr>
+<tr>
+ <td>React-toastify</td>
+ <td>dotenv</td>
+</tr>
 
+</table>
 
