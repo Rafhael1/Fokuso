@@ -36,6 +36,7 @@ For the server side I am using Express.js and PostgreSQL for database.
 <h1 id="install" >Installing</h1>
 <p style="font-size: 20px;">
 To use this project on your machine just clone this repository to your machine and run the command -> yarn install (if you use yarn).
+Then, in the server folder, run -> yarn run dev.
 </p>
 
 <h1 id="packages" >Packages</h1>
