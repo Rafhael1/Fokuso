@@ -15,7 +15,7 @@ export default function InputTodo() {
                 body: JSON.stringify(body)
             });
 
-            window.location = "/";
+            window.location = "/dashboard";
 
         } catch (err) {
             console.log(err.message)
