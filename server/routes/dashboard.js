@@ -3,7 +3,7 @@ const pool = require("../db");
 const authorization = require('../middleware/authorization');
 
 
-router.get('/', authorization, async(req,res) => {
+router.post('/', authorization, async(req,res) => {
     try {
         
         //res.json(req.user)
