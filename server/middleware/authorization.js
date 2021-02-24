@@ -4,7 +4,7 @@ require("dotenv").config();
 //this middleware will on continue on if the token is inside the local storage
 
 module.exports = function(req, res, next) {
-  // Get token from header
+  // Get token from header 'if it's not working change it to token or jwt_token'
   const token = req.header("jwt_token");
 
   // Check if not token
@@ -19,6 +19,7 @@ module.exports = function(req, res, next) {
 
     req.user = verify.user;
     next();
+    
   } catch (err) {
     res.status(401).json({ msg: "Token is not valid" });
   }

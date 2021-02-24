@@ -6,15 +6,14 @@ const validInfo = require('../middleware/validInfo');
 const authorization = require("../middleware/authorization")
 
 router.post("/register", validInfo, async(req,res) => {
+    const { name, email, password } = req.body;
     try {
 
-        // destructure req.body
-        const { name, email, password } = req.body;
 
         // Check if user exists
         const user = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
         
-        if(user.rows.length !== 0) {
+        if(user.rows.length > 0) {
             console.log("User already exist")
             return res.status(401).send("User already exist");
         }
@@ -23,21 +22,18 @@ router.post("/register", validInfo, async(req,res) => {
         const saltRounds = 10;
         const salt = await bcrypt.genSalt(saltRounds);
 
-        const bcryptPassword = bcrypt.hash(password, salt)
+        const bcryptPassword = await bcrypt.hash(password, salt)
        
         // insert new user into db
 
-        const newUser = await pool.query("INSERT INTO users (user_name, user_email, user_password) VALUES($1, $2, $3) RETURNING *", [
+        let newUser = await pool.query("INSERT INTO users (user_name, user_email, user_password) VALUES($1, $2, $3) RETURNING user_name, user_email", [
             name, email, bcryptPassword
         ])
 
-       // res.json(newUser.rows[0])
-
-        // generate jwt token
 
         const token = jwtGenerator(newUser.rows[0].user_id);
 
-        res.json({ token })
+        return res.json({ token })
 
 
     } catch (error) {
@@ -47,10 +43,10 @@ router.post("/register", validInfo, async(req,res) => {
 });
 
 router.post("/login", validInfo, async(req,res) => {
-    try {
-        // destructure req.body
 
-        const { email, password } = req.body;
+    const { email, password } = req.body;
+
+    try {
 
         // check if user exist
 
@@ -72,7 +68,8 @@ router.post("/login", validInfo, async(req,res) => {
             )
         }
 
-    res.json({token})
+        const jwtToken = jwtGenerator(user.rows[0].user_id);
+        return res.json({ jwtToken });
 
     } catch (error) {
         console.log(error.message)
@@ -80,7 +77,7 @@ router.post("/login", validInfo, async(req,res) => {
     }
 })
 
-router.get("/is-verify", authorization, async(req, res) => {
+router.post("/verify", authorization, async(req, res) => {
     try {
 
         res.json(true);
