@@ -16,7 +16,7 @@ export default function EditTodo({todo}) {
           body: JSON.stringify(body)
         });
 
-       window.location = "/";
+       window.location = "/dashboard";
 
       } catch (error) {
         console.log(error.message)
