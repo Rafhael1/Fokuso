@@ -4,6 +4,11 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom
 
 import { Container } from 'semantic-ui-react'
 
+// react toastify
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
+
 //components 
 
 import Login from './components/Authentication/Login/Login'
@@ -11,7 +16,9 @@ import Register from './components/Authentication/Register/Register'
 
 //pages
 import Dashboard from './pages/Dashboard/Dashboard'
-import Home from './pages/Home/Home'
+import Home from './pages/Home/Home';
+
+toast.configure()
 
 function App() {
 

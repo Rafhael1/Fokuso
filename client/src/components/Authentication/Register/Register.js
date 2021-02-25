@@ -6,6 +6,8 @@ import {Button, Checkbox, Form} from 'semantic-ui-react'
 
 import { Link, Redirect } from "react-router-dom";
 
+import { toast } from "react-toastify"
+
 
 export default function Register({setAuth}) {
 
@@ -25,7 +27,7 @@ export default function Register({setAuth}) {
     e.preventDefault()
     try {
 
-        const body = { name, email, password };
+      const body = { name, email, password };
 
       const response = await fetch("http://localhost:5000/auth/register", {
           method: "POST",
@@ -33,11 +35,16 @@ export default function Register({setAuth}) {
           body: JSON.stringify(body)
       })
 
-      const parseRes = await JSON.parse(response)
+      const parseRes = await response.json()
 
-      localStorage.setItem("token", parseRes.token)
-
-      setAuth(true)
+      if (parseRes.token){
+        localStorage.setItem("token", parseRes.token)
+        setAuth(true)
+        toast.success("Registered Sucessfully")
+      } else {
+        setAuth(false);
+        toast.error(parseRes)
+      }
 
     } catch (error) {
       console.log(error.message)
