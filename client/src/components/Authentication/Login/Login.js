@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 
 import './Login.scss'
 
-import {Button, Checkbox, Form} from 'semantic-ui-react'
+import {Button, Form} from 'semantic-ui-react'
 
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { toast } from "react-toastify";
 

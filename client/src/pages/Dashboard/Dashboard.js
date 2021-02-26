@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { toast } from "react-toastify";
+import React from 'react'
+import TodoComponent from '../../components/TodoComponent/TodoComponent'
 
-
-import NavBar from '../../components/UI/NavBar/NavBar'
-import InputTodo from '../../components/TodoComponent/InputTodo/InputTodo'
-import ListTodos from '../../components/TodoComponent/ListTodos/ListTodos'
+import { toast } from "react-toastify"
+ 
 
 export default function Dashboard({setAuth}) {
 
@@ -13,20 +11,40 @@ export default function Dashboard({setAuth}) {
     try {
       localStorage.removeItem("token");
       setAuth(false);
-      toast.success("Logout successfully");
+      toast.success("Logged out successfully");
     } catch (err) {
       console.error(err.message);
     }
   };
 
- 
+  /*
+  const getTodos = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/dashboard/", {
+        method: "GET",
+        headers: { jwt_token: localStorage.token }
+      });
 
+      const parseData = await res.json();
+      setAllTodos(parseData)
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+
+  useEffect(() => {
+    getTodos();
+  }, []);
+
+  <button onClick={e => logout(e)} className="btn btn-primary">
+        Logout
+      </button>
+*/
     return (
         <div>
-              <NavBar />
-                <InputTodo />
-                <ListTodos />
-                <button onClick={e => logout(e)} className="btn btn-primary">
+              <TodoComponent />
+              <button onClick={e => logout(e)}>
         Logout
       </button>
         </div>

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import './Quotes.scss'
+
 export default function Quotes() {
 
-    const [quote, setQuote] = useState() // empty array or empty object
+    const [quote, setQuote] = useState()
+    const [quoteAuthor, setQuoteAuthor] = useState()
 
     const getQuotes = async() => {
        try {
@@ -10,9 +13,9 @@ export default function Quotes() {
  
             const jsonData = await response.json();
 
-            console.log(jsonData.quote)
-
             setQuote(jsonData.quote)
+
+            setQuoteAuthor(jsonData.author)
 
         } catch (error) {
             console.log(error.message)
@@ -25,7 +28,7 @@ export default function Quotes() {
 
     return (
         <div>
-            <p>{quote}</p>
+            <p>"{quote}" - {quoteAuthor}</p>
             <button onClick={getQuotes} >Click</button>
         </div>
     )

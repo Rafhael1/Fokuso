@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import { Button, Icon, Modal, Input } from 'semantic-ui-react'
+import { Button, Modal, Input } from 'semantic-ui-react'
 
-export default function EditTodo({todo}) {
+export default function EditTodo({todo, setTodosChange}) {
 
     const [description, setDescription] = useState(todo.description);
 
@@ -10,13 +10,19 @@ export default function EditTodo({todo}) {
       e.preventDefault();
       try {
         const body = { description };
-        const response = await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
+
+        const myHeaders = new Headers()
+
+        myHeaders.append("Content-type", "application/json")
+        myHeaders.append("jwt_token", localStorage.token)
+
+
+        await fetch(`http://localhost:5000/dashboard/todos/${todo.todo_id}`, {
           method: "PUT",
-          headers: {"Content-type": "application/json"},
+          headers: myHeaders,
           body: JSON.stringify(body)
         });
-
-       window.location = "/dashboard";
+        setTodosChange(true)
 
       } catch (error) {
         console.log(error.message)

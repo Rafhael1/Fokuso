@@ -4,15 +4,16 @@ import React, { useEffect, useState } from 'react';
 import EditTodo from '../EditTodo/EditTodo';
 
 
-export default function ListTodos() {
+export default function ListTodos({allTodos, setTodosChange}) {
 
     const [todos, setTodos] = useState([]);
 
     const deleteTodo = async(id) => {
         try {
 
-            const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`,{
-                method: "DELETE"
+            await fetch(`http://localhost:5000/dashboard/todos/${id}`,{
+                method: "DELETE",
+                headers: {jwt_token: localStorage.token}
             });
 
            setTodos(todos.filter(todo => todo.todo_id !== id));
@@ -22,24 +23,11 @@ export default function ListTodos() {
         }
     }
 
-    const getTodos = async() => {
-        try {
-            const response = await fetch('http://localhost:5000/todos')
-            const jsonData = await response.json()
-
-
-            setTodos(jsonData)
-
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
-
     useEffect(() => {
-        getTodos();
-    }, []);
+        setTodos(allTodos)
+    }, [allTodos])
 
-   
+
 
     return (
         <div>
@@ -53,10 +41,11 @@ export default function ListTodos() {
                 </thead>
                 <tbody>
                     {
+                        todos.length !== 0 && todos[0].todo_id !== null && 
                         todos.map(todo => (
                             <tr key={todo.todo_id} >
                                 <td>{todo.description}</td>
-                                <td> <EditTodo todo={todo} /> </td>
+                                <td> <EditTodo todo={todo} setTodosChange={setTodosChange} /> </td>
                                 <td><button onClick={() => deleteTodo(todo.todo_id)} >Delete</button></td>
                             </tr>         
                         ))
