@@ -7,7 +7,6 @@ import ListTodos from './ListTodos/ListTodos'
 
 export default function TodoComponent() {
 
-  const [name, setName] = useState("");
   const [allTodos, setAllTodos] = useState([]);
   const [todosChange, setTodosChange] = useState(false);
 
@@ -22,11 +21,6 @@ export default function TodoComponent() {
 
       setAllTodos(parseData);
 
-      if(parseData[0].user_name.length === 0 || parseData[0].user_name === undefined || null ) {
-        setName("There")
-      } else {
-        setName(parseData[0].user_name);
-      }
 
     } catch (err) {
       console.error(err.message);
@@ -42,7 +36,6 @@ export default function TodoComponent() {
     
     return (
         <div>
-            <NavBar name={name} />
             <InputTodo setTodosChange={setTodosChange} />
             <ListTodos allTodos={allTodos} setTodosChange={setTodosChange} />
         </div>
