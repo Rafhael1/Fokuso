@@ -34,6 +34,7 @@ export default function TodoComponent() {
     
     return (
         <div>
+            <h2>Todos</h2>
             <InputTodo setTodosChange={setTodosChange} />
             <ListTodos allTodos={allTodos} setTodosChange={setTodosChange} />
         </div>

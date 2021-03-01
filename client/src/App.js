@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+
+import './App.scss'
  
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 
-import { Container } from 'semantic-ui-react'
 
 // react toastify
 
@@ -50,7 +51,7 @@ function App() {
   }, [])
 
   return (
-     <Container>
+     <div>
      <Router>
                 <div>
                 <Switch>
@@ -61,7 +62,7 @@ function App() {
                 </Switch>
                 </div>
             </Router>
-      </Container>
+      </div>
   );
 }
 

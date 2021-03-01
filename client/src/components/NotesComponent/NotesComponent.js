@@ -35,7 +35,7 @@ export default function NotesComponent() {
 
     return (
         <div>
-            Notes
+            <h2>Notes</h2>
             <InputNote setNotesChange={setNotesChange} />
             <ListNotes allNotes={allNotes} setNotesChange={setNotesChange} />
         </div>

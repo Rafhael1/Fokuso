@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { Button, Modal, Input } from 'semantic-ui-react'
+import './EditTodo.scss'
 
 export default function EditTodo({todo, setTodosChange}) {
 
@@ -72,7 +73,7 @@ export default function EditTodo({todo, setTodosChange}) {
       >
         <Modal.Header>Edit Todo</Modal.Header>
         <Modal.Content>
-          <Input placeholder='Edit Todo...' value={description} onChange={e => setDescription(e.target.value)} />
+          <Input className="EditInput" placeholder='Edit Todo...' value={description} onChange={e => setDescription(e.target.value)} />
         </Modal.Content>
         <Modal.Actions>
           <Button inverted color="red" onClick={() => {

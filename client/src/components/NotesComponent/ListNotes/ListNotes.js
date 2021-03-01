@@ -33,9 +33,9 @@ export default function ListNotes({allNotes, setNotesChange}) {
       <table>
         <thead>
           <tr>
-            <th>Description</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +43,7 @@ export default function ListNotes({allNotes, setNotesChange}) {
                 notes.length !== 0 && notes[0].note_id !== null &&
                 notes.map(note => (
                     <tr key={note.note_id}>
-                      <td>{note.description}</td>
+                      <td>{note.description.length >= 15 ? note.description.substring(0,25) : note.description}</td>
                       <td><EditNote note={note} setNotesChange={setNotesChange} /></td>
                       <td><button onClick={() => deleteNote(note.note_id)}>Delete</button></td>
                     </tr>

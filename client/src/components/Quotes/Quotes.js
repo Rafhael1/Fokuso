@@ -27,9 +27,8 @@ export default function Quotes() {
     }, [])
 
     return (
-        <div>
+        <div className="Quotes">
             <p>"{quote}" - {quoteAuthor}</p>
-            <button onClick={getQuotes} >Click</button>
         </div>
     )
 }

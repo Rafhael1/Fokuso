@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { Button, Modal, Input } from 'semantic-ui-react'
+import './EditNote.scss'
 
 export default function EditNote({note, setNotesChange}) {
 
@@ -72,7 +73,7 @@ export default function EditNote({note, setNotesChange}) {
       >
         <Modal.Header>Edit Note</Modal.Header>
         <Modal.Content>
-          <Input placeholder='Edit Note...' value={description} onChange={e => setDescription(e.target.value)} />
+          <Input className="EditInput" placeholder='Edit Note...' value={description} onChange={e => setDescription(e.target.value)} />
         </Modal.Content>
         <Modal.Actions>
           <Button inverted color="red" onClick={() => {

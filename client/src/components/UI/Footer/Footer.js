@@ -1,11 +1,15 @@
 import React from 'react'
 
-import Settings from '../Settings/Settings'
+import { Icon } from 'semantic-ui-react'
 
 export default function Footer() {
+
+
     return (
         <div>
-            <Settings />
+            <i>
+                <Icon />
+            </i>
         </div>
     )
 }

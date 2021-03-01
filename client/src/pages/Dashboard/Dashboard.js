@@ -3,6 +3,8 @@ import React from 'react'
 // styles
 import './Dashboard.scss'
 
+import { Container } from 'semantic-ui-react'
+
 // components
 import TodoComponent from '../../components/TodoComponent/TodoComponent'
 import NotesComponent from '../../components/NotesComponent/NotesComponent'
@@ -10,8 +12,7 @@ import NotesComponent from '../../components/NotesComponent/NotesComponent'
 import Footer from '../../components/UI/Footer/Footer'
 import NavBar from '../../components/UI/NavBar/NavBar'
 
-import { toast } from "react-toastify"
- 
+import {toast} from "react-toastify"
 
 export default function Dashboard({setAuth}) {
 
@@ -26,15 +27,20 @@ export default function Dashboard({setAuth}) {
     }
   };
 
-    return (
-        <div>
-          <NavBar />
-          <div>
-          <TodoComponent />
-          <NotesComponent />
-          </div>
-          <Footer />
-          <button onClick={e => logout(e)}>Logout</button>
-        </div>
-    )
+  return (
+    <div>
+      <NavBar/>
+      <Container className="DashboardBody">
+        <section>
+          <TodoComponent/>
+        </section>
+        <section>
+          <NotesComponent/>
+        </section>
+
+      </Container>
+      <button onClick={e => logout(e)} >Logout</button>
+      <Footer/>
+    </div>
+  )
 }

@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 
+// styles
+
 import './Login.scss'
-
+import { Container } from 'semantic-ui-react'
 import {Button, Form} from 'semantic-ui-react'
-
-import { Link } from "react-router-dom";
-
 import { toast } from "react-toastify";
 
+// other components
 
+import { Link } from "react-router-dom";
 
 export default function Login({setAuth}) {
 
@@ -54,7 +55,7 @@ export default function Login({setAuth}) {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Login</h1>
       <Form onSubmit={onSubmitForm} >
         <Form.Field>
@@ -80,6 +81,6 @@ export default function Login({setAuth}) {
         <Button inverted color="green" type='submit'>Submit</Button>
       </Form>
       <Link to="/register">Register</Link>
-    </div>
+    </Container>
   )
 }

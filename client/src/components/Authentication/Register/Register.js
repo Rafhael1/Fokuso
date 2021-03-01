@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
 
-import './Register.scss'
+// styles
 
+import './Register.scss'
+import { Container } from 'semantic-ui-react'
 import {Button, Form} from 'semantic-ui-react'
+import { toast } from "react-toastify";
+
+// other components
 
 import { Link } from "react-router-dom";
-
-import { toast } from "react-toastify"
 
 
 export default function Register({setAuth}) {
@@ -52,7 +55,7 @@ export default function Register({setAuth}) {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Register</h1>
       <Form onSubmit={onSubmitForm} >
         <Form.Field>
@@ -88,6 +91,6 @@ export default function Register({setAuth}) {
         <Button inverted color="green" type='submit'>Submit</Button>
       </Form>
       <Link to="/login">Login</Link>
-    </div>
+    </Container>
   )
 }
