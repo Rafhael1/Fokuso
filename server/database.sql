@@ -18,3 +18,10 @@ CREATE TABLE workspace_todo(
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+CREATE TABLE notes(
+    note_id SERIAL ,
+    user_id UUID,
+    description VARCHAR(300) NOT NULL,
+    PRIMARY KEY (note_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);

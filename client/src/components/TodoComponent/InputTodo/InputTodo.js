@@ -11,7 +11,7 @@ export default function InputTodo({setTodosChange}) {
 
             const myHeaders = new Headers();
 
-            myHeaders.append("COntent-type", "application/json")
+            myHeaders.append("Content-type", "application/json")
             myHeaders.append("jwt_token", localStorage.token)
 
             const body = {description};

@@ -15,7 +15,7 @@ router.post("/register", validInfo, async(req,res) => {
         
         if(user.rows.length > 0) {
             console.log("User already exist")
-            return res.status(401).json("User already exist");
+            return res.status(401).json("Email already taken!");
         }
 
         // Bcrypt user's password
@@ -73,7 +73,7 @@ router.post("/login", validInfo, async(req,res) => {
 
     } catch (error) {
         console.log(error.message)
-        res.status(500).send("Server Error")
+        res.status(500).json("User does not exist")
     }
 })
 

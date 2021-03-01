@@ -45,6 +45,7 @@ export default function Login({setAuth}) {
       } else {
         setAuth(false);
         toast.error(parseRes);
+        console.log(parseRes)
       }
 
     } catch (error) {

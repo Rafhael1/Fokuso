@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import { toast } from 'react-toastify'
 
 import Quotes from '../../Quotes/Quotes'
 
@@ -37,7 +36,7 @@ export default function NavBar() {
   return (
     <header>
       <nav>
-        <h1>WorkSpace</h1>
+        <h1>Fokuso</h1>
         <Quotes/>
         <h1>Hello {name}!</h1>
       </nav>

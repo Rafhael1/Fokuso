@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react'
 
-
-import NavBar from '../../components/UI/NavBar/NavBar'
 import InputTodo from './InputTodo/InputTodo'
 import ListTodos from './ListTodos/ListTodos'
 

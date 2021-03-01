@@ -32,35 +32,6 @@ app.get('/quotes', (req, res) => {
 
 
 
-//get all todos
-/*
-app.get("/todos", async(req,res) => {
-    try {
-        const allTodos = await pool.query("SELECT * FROM workspace_todo");
-
-        res.json(allTodos.rows)
-
-    } catch (err) {
-        console.log(err.message)
-    }
-});
-
-//get a todo
-
-app.get("/todos/:id", async(req,res) => {
-    try {
-        console.log(req.params);
-        const todo = await pool.query("SELECT * FROM workspace_todo WHERE todo_id = $1", [id]);
-
-        res.json(todo.rows[0])
-
-    } catch (error) {
-        console.log(error.message)
-    }
-})
-
-*/
-
 app.listen(port, () => {
     console.log("Server has started on http://localhost:5000")
 });
