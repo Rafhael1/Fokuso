@@ -18,8 +18,8 @@ The idead behind this app is to have all your main productivity apps in one. Ins
 <p style="font-size: 20px;"  >So far the To-Do feature has been added and the quotes feature too(sort of).</p>
 <oL>
  <li style="font-size: 17px;">To-do(implemented)</li>
- <li style="font-size: 17px;">Notes(to be implemented)</li>
- <li style="font-size: 17px;">Quotes(implemented)</li>
+ <li style="font-size: 17px;">Notes(implemented)</li>
+ <li style="font-size: 17px;">Quotes(partially implemented)</li>
  <li style="font-size: 17px;">Calendar(to be implemented)</li>
  <li style="font-size: 17px;">Weather(to be implemented)</li>
 </ol>
