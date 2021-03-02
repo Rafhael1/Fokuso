@@ -8,6 +8,7 @@
         border-radius: 10px;
         background-color: rgba(65, 65, 65, 0.418);
         display: inline-block !important;
+        position: relative !important;
         ul {
             padding: 2px 10px !important;
             li {
@@ -19,6 +20,17 @@
                     width: 45px;
                 }
             }
+        }
+        i {
+            position: absolute !important;
+            margin-top: 3px;
+            top: 0 !important;
+            right:0 !important ; 
+            opacity: 40%;
+        }
+        i:hover {
+            opacity: 100%;
+            color: rgb(241, 54, 54) !important;
         }
     }
 }
