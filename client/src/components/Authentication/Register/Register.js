@@ -2,9 +2,8 @@ import React, {useState} from 'react'
 
 // styles
 
-import './Register.scss'
-import { Container } from 'semantic-ui-react'
-import {Button, Form} from 'semantic-ui-react'
+import '../Form.scss'
+import {Container, Button, Form} from 'semantic-ui-react'
 import { toast } from "react-toastify";
 
 // other components
@@ -55,42 +54,45 @@ export default function Register({setAuth}) {
   }
 
   return (
-    <Container>
+    <Container className="formContainer register" >
       <h1>Register</h1>
       <Form onSubmit={onSubmitForm} >
         <Form.Field>
           <label>Username</label>
-          <input
+          <Form.Input
+            icon='user'
+            iconPosition='left'
             type="text"
             name="name"
-            placeholder="name"
-            className="FormInput"
+            placeholder="Name"
             value={name}
             onChange={e => onChange(e)}/>
         </Form.Field>
         <Form.Field>
           <label>Email</label>
-          <input
+          <Form.Input
+            icon='mail'
+            iconPosition='left'
             type="email"
             name="email"
-            placeholder="email"
-            className="FormInput"
+            placeholder="Email"
             value={email}
             onChange={e => onChange(e)}/>
         </Form.Field>
         <Form.Field>
           <label>Password</label>
-          <input
+          <Form.Input
+            icon='lock'
+            iconPosition='left'
             type="password"
             name="password"
             placeholder="password"
-            className="FormInput"
             value={password}
             onChange={e => onChange(e)}/>
         </Form.Field>
-        <Button inverted color="green" type='submit'>Submit</Button>
+        <Button  color="purple" type='submit'>Submit</Button>
       </Form>
-      <Link to="/login">Login</Link>
+      <Link to="/login"><Button inverted content='Login' icon='sign in alternate' color="purple"></Button></Link>
     </Container>
   )
 }

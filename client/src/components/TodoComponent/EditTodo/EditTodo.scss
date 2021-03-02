@@ -1,3 +1,21 @@
 .EditInput {
     width: 490px;
 }
+
+.Ebtn {
+    opacity: 0;
+    transition: 0.5s !important;
+}
+.Dbtn {
+    opacity: 0;
+    transition: 0.5s !important;
+}
+
+.ListTodos:hover {
+    .Ebtn {
+        opacity: 1;
+    }
+    .Dbtn {
+        opacity: 1;
+    }  
+}

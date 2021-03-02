@@ -1,19 +1,25 @@
 import React, {useState} from 'react'
 
 // styles
-
-import './Login.scss'
-import { Container } from 'semantic-ui-react'
-import {Button, Form} from 'semantic-ui-react'
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
+import {
+  Container,
+  Button,
+  Divider,
+  Form,
+  Grid,
+  Segment
+} from 'semantic-ui-react'
+import '../Form.scss'
 
 // other components
 
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default function Login({setAuth}) {
 
-  const [inputs, setInputs] = useState({email: "", password: ""})
+  const [inputs,
+    setInputs] = useState({email: "", password: ""})
 
   const {email, password} = inputs;
 
@@ -28,16 +34,20 @@ export default function Login({setAuth}) {
     e.preventDefault()
     try {
 
-        const body = {email, password };
+      const body = {
+        email,
+        password
+      };
 
       const response = await fetch("http://localhost:5000/auth/login", {
-          method: "POST",
-          headers: {"Content-type": "application/json"},
-          body: JSON.stringify(body)
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(body)
       })
 
       const parseRes = await response.json()
-
 
       if (parseRes.jwtToken) {
         localStorage.setItem("token", parseRes.jwtToken);
@@ -55,32 +65,40 @@ export default function Login({setAuth}) {
   }
 
   return (
-    <Container>
+    <Container className="formContainer login">
       <h1>Login</h1>
-      <Form onSubmit={onSubmitForm} >
-        <Form.Field>
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            className="FormInput"
-            value={email}
-            onChange={e => onChange(e)}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-          <input
-            type="password"
+      <Segment placeholder>
+        <Grid columns={2} relaxed='very' stackable>
+          <Grid.Column>
+            <Form onSubmit={onSubmitForm}>
+              <Form.Input
+                icon='mail'
+                iconPosition='left'
+                label='Email'
+                placeholder='Email'
+                type="email"
+                name="email"
+                placeholder="email"
+                value={email}
+                onChange={e => onChange(e)}
+                />
+              <Form.Input icon='lock' iconPosition='left' label='Password' type='password' type="password"
             name="password"
             placeholder="password"
-            className="FormInput"
             value={password}
             onChange={e => onChange(e)}/>
-        </Form.Field>
-        <Button inverted color="green" type='submit'>Submit</Button>
-      </Form>
-      <Link to="/register">Register</Link>
+
+              <Button content='Login' color="purple" />
+            </Form>
+          </Grid.Column>
+
+          <Grid.Column verticalAlign='middle'>
+            <Link to="/register"><Button content='Sign up' icon='signup' size='big' inverted color="purple" ></Button></Link>
+          </Grid.Column>
+        </Grid>
+
+        <Divider vertical>Or</Divider>
+      </Segment>
     </Container>
   )
 }

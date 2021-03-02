@@ -6,6 +6,10 @@ import './NavBar.scss'
 
 import {Header} from 'semantic-ui-react'
 
+// imgs
+
+import Logo from '../../../Images/fokuso.svg'
+
 // components
 import Quotes from '../../Quotes/Quotes'
 import Weather from '../../Weather/Weather'
@@ -46,15 +50,15 @@ export default function NavBar() {
       <nav>
         <ul>
           <li>
-            <Header as="h1" floated="left">Fokuso</Header>
+            <Header size="huge" ><img  src={Logo} /></Header>
           </li>
-          <li>
-            <Header as="h3" textAlign="center"><Quotes/></Header>
+          <li> 
+            <Quotes/>
           </li>
-          <li>
-            <Header as="h2" style={{color: 'white'}} floated="right">Hello {name}!</Header>
+          <li style={{float: 'right'}} >
+            <Header as="h2" style={{color: 'white'}} floated="right" >Hello {name}!</Header>
           </li>
-          <li>
+          <li style={{float: 'right'}} >
             <Header floated="right"><Weather/></Header>
           </li>
         </ul>

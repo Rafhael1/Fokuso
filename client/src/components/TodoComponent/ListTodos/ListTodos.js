@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import EditTodo from '../EditTodo/EditTodo';
 
+import { Button } from 'semantic-ui-react'
 
 export default function ListTodos({allTodos, setTodosChange}) {
 
@@ -37,14 +38,14 @@ export default function ListTodos({allTodos, setTodosChange}) {
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="ListTodos" >
                     {
                         todos.length !== 0 && todos[0].todo_id !== null && 
                         todos.map(todo => (
                             <tr key={todo.todo_id} >
-                                <td>{todo.description.length >= 15 ? todo.description.substring(0, 25) : todo.description }</td>
+                                <td>{todo.description.length >= 20 ? todo.description.substring(0, 25) : todo.description }</td>
                                 <td> <EditTodo todo={todo} setTodosChange={setTodosChange} /> </td>
-                                <td><button onClick={() => deleteTodo(todo.todo_id)} >Delete</button></td>
+                                <td><Button color="red" className="Dbtn"  icon="trash" onClick={() => deleteTodo(todo.todo_id)} /> </td>
                             </tr>         
                         ))
                     }

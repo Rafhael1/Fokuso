@@ -1,14 +1,18 @@
 header {
     background-color: rgba(114, 47, 103, 0.87);
+    padding: 20px;
     ul {
-        padding-bottom: 5px !important;
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        vertical-align: middle !important;
         li {
             color: white !important;
+            vertical-align: middle;
+            display: inline-block;
+            .Quotes {
+                margin: 0 auto !important;
+            }
         }
     }
 }

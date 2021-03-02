@@ -57,10 +57,11 @@ export default function EditTodo({todo, setTodosChange}) {
         <div>
       <Button
        data-target={`#id${todo.todo_id}`} 
+       icon="edit"
+       color="yellow"
+       className="Ebtn"
        onClick={() => dispatch({ type: 'open', size: 'tiny' })}
-       >
-        Edit
-      </Button>
+       />
 
       <Modal
         size={size}
