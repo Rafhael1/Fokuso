@@ -1,18 +1,20 @@
 header {
-    background-color: rgba(114, 47, 103, 0.87);
-    padding: 20px;
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        li {
-            color: white !important;
-            vertical-align: middle;
-            display: inline-block;
-            .Quotes {
-                margin: 0 auto !important;
-            }
-        }
+    
+    .Quotes {
+        margin: 0 auto !important;
     }
+    .Logo {
+        height: 55px !important;
+        width: 100px !important;
+    }
+
+    background-image: linear-gradient(-225deg, #7643b1 0%, #886AEA 53%, #6457C6 100%);
+    font-family: 'Quicksand', sans-serif !important;
+    vertical-align: baseline !important;
+    width: 100%;
+    display: -webkit-inline-flex  !important;
+    padding: 20px;
+    height: 103px;
+    color: white !important;
+
 }

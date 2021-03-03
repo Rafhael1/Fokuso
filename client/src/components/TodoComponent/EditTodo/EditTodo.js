@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { Button, Modal, Input } from 'semantic-ui-react'
+
 import './EditTodo.scss'
 
 export default function EditTodo({todo, setTodosChange}) {
@@ -62,7 +63,6 @@ export default function EditTodo({todo, setTodosChange}) {
        className="Ebtn"
        onClick={() => dispatch({ type: 'open', size: 'tiny' })}
        />
-
       <Modal
         size={size}
         open={open}

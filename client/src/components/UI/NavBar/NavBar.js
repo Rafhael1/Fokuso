@@ -8,7 +8,7 @@ import {Header} from 'semantic-ui-react'
 
 // imgs
 
-import Logo from '../../../Images/fokuso.svg'
+import Logo from '../../../Images/Fokuso.png'
 
 // components
 import Quotes from '../../Quotes/Quotes'
@@ -46,23 +46,11 @@ export default function NavBar() {
   }, [])
 
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Header size="huge" ><img  src={Logo} /></Header>
-          </li>
-          <li> 
-            <Quotes/>
-          </li>
-          <li style={{float: 'right'}} >
-            <Header as="h2" style={{color: 'white'}} floated="right" >Hello {name}!</Header>
-          </li>
-          <li style={{float: 'right'}} >
-            <Header floated="right"><Weather/></Header>
-          </li>
-        </ul>
-      </nav>
+    <header>    
+       <img className="Logo" src={Logo} alt="" />
+        <Quotes/> 
+        <Weather/>
+        <h3>Hello {name.length === 0 ? 'There' : name}!</h3>
     </header>
   )
 }

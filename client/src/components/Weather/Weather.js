@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 // styles
 import './Weather.scss'
 
@@ -27,6 +26,7 @@ export default class Weather extends Component {
       const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.query}&units=metric&appid=${API_KEY}`)
 
       const parseData = await res.json()
+      console.log(parseData)
       this.setState({weather: parseData})
 
     } catch (error) {
@@ -37,7 +37,6 @@ export default class Weather extends Component {
   setWeatherEmpty = () => {
     this.setState({weather: {}})
   }
-
 
   render() {
 
@@ -51,7 +50,6 @@ export default class Weather extends Component {
            <form onSubmit={(e) => this.getWeather(e)}>
               <Input
                 icon={{ name: 'search', circular: true, link: true }}
-                size="mini"
                 placeholder='Enter Location For Weather Info'
                 value={this.state.query} 
                 onChange={e => this.setState({query: e.target.value})}
@@ -66,7 +64,7 @@ export default class Weather extends Component {
                       this.state.weather.weather[0].main === "Rain" ? <img src={Rain} alt="" /> : <img src={Null} alt=""/> && 
                       this.state.weather.weather[0].main === "Clouds" ? <img src={Cloud}alt=""/> : <img src={Null} alt=""/> && 
                       this.state.weather.weather[0].main === "Snow" ? <img src={Snow} alt=""/> : <img src={Null} alt=""/> && 
-                      this.state.weather.weather[0].main === "Sun" ? <img src={Sun} alt=""/> : <img src={Null} alt=""/>               
+                      this.state.weather.weather[0].main === "Clear" ? <img src={Sun} alt=""/> : <img src={Null} alt=""/>               
                     } 
                 </li>
                 <li><h4>{Math.round(this.state.weather.main.temp)}°c | </h4></li>

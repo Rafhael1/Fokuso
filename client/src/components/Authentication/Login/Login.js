@@ -78,7 +78,6 @@ export default function Login({setAuth}) {
                 placeholder='Email'
                 type="email"
                 name="email"
-                placeholder="email"
                 value={email}
                 onChange={e => onChange(e)}
                 />

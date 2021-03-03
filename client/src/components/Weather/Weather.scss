@@ -1,16 +1,18 @@
 .Weather {
+
     form {
         border: 0px;
-        border-radius: 10px;
-        padding: 5px;
+        margin: 15px 15px;
     }
     .WeatherBox {
         border-radius: 10px;
         background-color: rgba(65, 65, 65, 0.418);
         display: inline-block !important;
         position: relative !important;
+        margin: 0 20px;
         ul {
-            padding: 2px 10px !important;
+            margin: 0 !important;
+            padding: 5px 10px 5px 10px !important;
             li {
                 display: inline-block;
                 vertical-align: middle;
@@ -30,7 +32,7 @@
         }
         i:hover {
             opacity: 100%;
-            color: rgb(241, 54, 54) !important;
+            color: rgba(223, 65, 65, 0.534) !important;
         }
     }
 }
