@@ -4,8 +4,6 @@ import React, {useState, useEffect} from 'react';
 
 import './NavBar.scss'
 
-import {Header} from 'semantic-ui-react'
-
 // imgs
 
 import Logo from '../../../Images/Fokuso.png'

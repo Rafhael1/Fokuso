@@ -8,6 +8,7 @@ import { Container } from 'semantic-ui-react'
 // components
 import TodoComponent from '../../components/TodoComponent/TodoComponent'
 import NotesComponent from '../../components/NotesComponent/NotesComponent'
+import CalendarPlugin from '../../components/CalendarPlugin/CalendarPlugin'
 
 import Footer from '../../components/UI/Footer/Footer'
 import NavBar from '../../components/UI/NavBar/NavBar'
@@ -36,6 +37,9 @@ export default function Dashboard({setAuth}) {
         </section>
         <section>
           <NotesComponent/>
+        </section>
+        <section>
+          <CalendarPlugin />
         </section>
 
       </Container>
