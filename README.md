@@ -20,13 +20,13 @@ The idead behind this app is to have all your main productivity apps in one. Ins
  <li style="font-size: 17px;">To-do(implemented)</li>
  <li style="font-size: 17px;">Notes(implemented)</li>
  <li style="font-size: 17px;">Quotes(partially implemented)</li>
- <li style="font-size: 17px;">Calendar(to be implemented)</li>
- <li style="font-size: 17px;">Weather(to be implemented)</li>
+ <li style="font-size: 17px;">Calendar(implemented)</li>
+ <li style="font-size: 17px;">Weather(implemented)</li>
 </ol>
 
 <h1 id="client" >Client Side</h1>
 <p style="font-size: 20px;">
-For the front-end I am using React.js (w/ Hooks) and for styling I am using SASS. Remember that I am using yarn so if you're going to start the client side remember to use the command -> yarn start
+For the front-end I am using React.js (w/ Hooks) and for styling I am using SASS. Also, react-loader-spinner is listed as a dependency but I haven't implemented it yet.
 </p>
 <h1 id="server" >Server Side</h1>
 <p style="font-size: 20px;">
@@ -65,6 +65,11 @@ Then, in the server folder, run -> yarn run dev.
 >
  <td>React-toastify</td>
  <td>dotenv</td>
+</tr>
+<tr style="font-size: 18px;"
+>
+ <td>React-loader-spinner</td>
+ <td></td>
 </tr>
 
 </table>
