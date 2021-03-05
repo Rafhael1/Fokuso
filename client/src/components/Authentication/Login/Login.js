@@ -16,7 +16,7 @@ import '../Form.scss'
 
 import {Link} from "react-router-dom";
 
-export default function Login({setAuth}) {
+export default function Login({setAuth, setLoader}) {
 
   const [inputs,
     setInputs] = useState({email: "", password: ""})
@@ -53,6 +53,7 @@ export default function Login({setAuth}) {
         localStorage.setItem("token", parseRes.jwtToken);
         setAuth(true);
         toast.success("Logged in Successfully");
+        setLoader(false)
       } else {
         setAuth(false);
         toast.error(parseRes);

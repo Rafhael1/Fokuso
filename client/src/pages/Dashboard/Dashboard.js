@@ -3,7 +3,7 @@ import React from 'react'
 // styles
 import './Dashboard.scss'
 
-import { Container } from 'semantic-ui-react'
+import {Container} from 'semantic-ui-react'
 
 // components
 import TodoComponent from '../../components/TodoComponent/TodoComponent'
@@ -39,11 +39,11 @@ export default function Dashboard({setAuth}) {
           <NotesComponent/>
         </section>
         <section>
-          <CalendarPlugin />
+          <CalendarPlugin/>
         </section>
 
       </Container>
-      <button onClick={e => logout(e)} >Logout</button>
+      <button onClick={e => logout(e)}>Logout</button>
       <Footer/>
     </div>
   )

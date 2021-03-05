@@ -49,7 +49,7 @@ export default class Weather extends Component {
           ? 
            <form onSubmit={(e) => this.getWeather(e)}>
               <Input
-                icon={{ name: 'search', circular: true, link: true }}
+                icon={{ name: 'cloud', circular: true, link: true }}
                 placeholder='Enter Location For Weather Info'
                 value={this.state.query} 
                 onChange={e => this.setState({query: e.target.value})}

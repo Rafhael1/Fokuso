@@ -13,6 +13,8 @@ import "react-toastify/dist/ReactToastify.css"
 import Login from './components/Authentication/Login/Login'
 import Register from './components/Authentication/Register/Register'
 
+import Loader from 'react-loader-spinner'
+
 //pages
 import Dashboard from './pages/Dashboard/Dashboard'
 import Home from './pages/Home/Home';
@@ -22,6 +24,8 @@ toast.configure()
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const [loader, setLoader] = useState(false);
 
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean)
@@ -38,7 +42,6 @@ function App() {
       const parseRes = await response.json()
 
       parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false)
-
     } catch (error) {
       console.log(error.message)
     }
@@ -53,7 +56,7 @@ function App() {
      <Router>
                 <div>
                 <Switch>
-                    <Route exact path="/login" render={props => !isAuthenticated ? <Login {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
+                    <Route exact path="/login" render={props => !isAuthenticated  ? <Login {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
                     <Route exact path="/register" render={props => !isAuthenticated ? <Register {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
                     <Route exact path="/dashboard" render={props =>  isAuthenticated ? <Dashboard {...props} setAuth={setAuth} /> : <Redirect to="/login" />}></Route>
                     <Route exact path="/" render={props =>  !isAuthenticated ? <Home {...props} /> : <Redirect to="/dashboard" />}></Route>

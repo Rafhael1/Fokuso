@@ -57,9 +57,11 @@ export default function EditNote({note, setNotesChange}) {
         <div>
       <Button
        data-target={`#id${note.note_id}`} 
+       icon="edit"
+       color="yellow"
+       className="Ebtn"
        onClick={() => dispatch({ type: 'open', size: 'tiny' })}
        >
-        Edit
       </Button>
 
       <Modal

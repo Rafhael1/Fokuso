@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 
 import EditNote from '../../NotesComponent/EditNote/EditNote'
 
+import { Button } from 'semantic-ui-react'
+
 export default function ListNotes({allNotes, setNotesChange}) {
 
   const [notes,
@@ -38,14 +40,14 @@ export default function ListNotes({allNotes, setNotesChange}) {
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="ListNotes" >
             {
                 notes.length !== 0 && notes[0].note_id !== null &&
                 notes.map(note => (
                     <tr key={note.note_id}>
                       <td>{note.description.length >= 15 ? note.description.substring(0,25) : note.description}</td>
-                      <td><EditNote note={note} setNotesChange={setNotesChange} /></td>
-                      <td><button onClick={() => deleteNote(note.note_id)}>Delete</button></td>
+                      <td><EditNote note={note} className="Ebtn" setNotesChange={setNotesChange} /></td>
+                      <td><Button color="red" className="Dbtn"  icon="trash" onClick={() => deleteNote(note.note_id)} /></td>
                     </tr>
                 )) 
             }

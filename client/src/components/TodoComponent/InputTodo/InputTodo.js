@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import {toast} from "react-toastify";
 
+import { Input } from 'semantic-ui-react'
+
 export default function InputTodo({setTodosChange}) {
 
     const [description, setDescription] = useState('');
@@ -48,12 +50,13 @@ export default function InputTodo({setTodosChange}) {
     return (
         <div>
              <form onSubmit={onSubmitForm} >
-                    <input 
-                     type="text"
-                     value={description} 
-                     onChange={e => setDescription(e.target.value)}
+                     <Input
+                      type="text"
+                      value={description} 
+                      placeholder="New Todo..."
+                      size="small"
+                      onChange={e => setDescription(e.target.value)}
                      />
-                    <button>Add</button>
                 </form>
         </div>
     )
