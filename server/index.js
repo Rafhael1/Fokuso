@@ -23,7 +23,8 @@ app.use('/dashboard', require("./routes/dashboard"))
 
 app.get('/quotes', (req, res) => {
     try {
-       const response =  quotes[Math.floor(Math.random() * 4)];
+       console.log(quotes.length)
+       const response =  quotes[Math.floor(Math.random() * 22)];
        res.json(response)
     } catch (error) {
         console.log(error.message)
