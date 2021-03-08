@@ -4,12 +4,13 @@ import React, {useState} from 'react'
 
 import '../Form.scss'
 import {Container, Button, Form} from 'semantic-ui-react'
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
+
+import Logo from '../../../Images/Fokuso.png'
 
 // other components
 
-import { Link } from "react-router-dom";
-
+import {Link} from "react-router-dom";
 
 export default function Register({setAuth}) {
 
@@ -29,20 +30,25 @@ export default function Register({setAuth}) {
     e.preventDefault()
     try {
 
-      const body = { name, email, password };
+      const body = {
+        name,
+        email,
+        password
+      };
 
       const response = await fetch("http://localhost:5000/auth/register", {
-          method: "POST",
-          headers: {"Content-type": "application/json"},
-          body: JSON.stringify(body)
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(body)
       })
 
       const parseRes = await response.json()
 
-      if (parseRes.token){
+      if (parseRes.token) {
         localStorage.setItem("token", parseRes.token)
-        setAuth(true)
-        toast.success("Registered Sucessfully")
+        toast.success("Registered Sucessfully, now you can login through the login page!")
       } else {
         setAuth(false);
         toast.error(parseRes)
@@ -54,9 +60,10 @@ export default function Register({setAuth}) {
   }
 
   return (
-    <Container className="formContainer register" >
-      <h1>Register</h1>
-      <Form onSubmit={onSubmitForm} >
+    <Container className="formContainer register">
+      <Link to="/"><img className="Logo" src={Logo} alt=""/></Link>
+      <h1>Sign Up</h1>
+      <Form onSubmit={onSubmitForm}>
         <Form.Field>
           <label>Username</label>
           <Form.Input
@@ -90,9 +97,11 @@ export default function Register({setAuth}) {
             value={password}
             onChange={e => onChange(e)}/>
         </Form.Field>
-        <Button  color="purple" type='submit'>Submit</Button>
+        <Button color="purple" type='submit'>Submit</Button>
       </Form>
-      <Link to="/login"><Button inverted content='Login' icon='sign in alternate' color="purple"></Button></Link>
+      <Link to="/login">
+        <Button inverted content='Login' icon='sign in alternate' color="purple"></Button>
+      </Link>
     </Container>
   )
 }

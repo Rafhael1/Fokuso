@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 import { Input } from 'semantic-ui-react'
 
@@ -55,6 +55,7 @@ export default function InputTodo({setTodosChange}) {
                       value={description} 
                       placeholder="New Todo..."
                       size="small"
+                      icon="add circle"
                       onChange={e => setDescription(e.target.value)}
                      />
                 </form>

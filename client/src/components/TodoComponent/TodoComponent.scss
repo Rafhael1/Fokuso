@@ -1,5 +1,9 @@
-.ListTodos {
-    td {
-        margin: 0 auto;
+ .todo {
+        background-color: rgba(255, 255, 255, 0.623) !important;
+        box-shadow: 1px 1px 5px rgb(26, 26, 26);
+        margin: 4px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 0px;
+        font-weight: 600;
     }
-}

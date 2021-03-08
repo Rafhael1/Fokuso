@@ -12,6 +12,8 @@ import {
 } from 'semantic-ui-react'
 import '../Form.scss'
 
+import Logo from '../../../Images/Fokuso.png'
+
 // other components
 
 import {Link} from "react-router-dom";
@@ -67,6 +69,7 @@ export default function Login({setAuth, setLoader}) {
 
   return (
     <Container className="formContainer login">
+      <Link to="/"><img className="Logo" src={Logo} alt=""/></Link>
       <h1>Login</h1>
       <Segment placeholder>
         <Grid columns={2} relaxed='very' stackable>
@@ -80,20 +83,26 @@ export default function Login({setAuth, setLoader}) {
                 type="email"
                 name="email"
                 value={email}
-                onChange={e => onChange(e)}
-                />
-              <Form.Input icon='lock' iconPosition='left' label='Password' type='password' type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={e => onChange(e)}/>
+                onChange={e => onChange(e)}/>
+              <Form.Input
+                icon='lock'
+                iconPosition='left'
+                label='Password'
+                type='password'
+                type="password"
+                name="password"
+                placeholder="password"
+                value={password}
+                onChange={e => onChange(e)}/>
 
-              <Button content='Login' color="purple" />
+              <Button content='Login' color="purple"/>
             </Form>
           </Grid.Column>
 
           <Grid.Column verticalAlign='middle'>
-            <Link to="/register"><Button content='Sign up' icon='signup' size='big' inverted color="purple" ></Button></Link>
+            <Link to="/register">
+              <Button content='Sign up' icon='signup' size='big' inverted color="purple"></Button>
+            </Link>
           </Grid.Column>
         </Grid>
 

@@ -12,6 +12,8 @@ import Logo from '../../../Images/Fokuso.png'
 import Quotes from '../../Quotes/Quotes'
 import Weather from '../../Weather/Weather'
 
+import { Link } from 'react-router-dom'
+
 export default function NavBar() {
 
   const [name,
@@ -45,7 +47,7 @@ export default function NavBar() {
 
   return (
     <header>    
-       <img className="Logo" src={Logo} alt="" />
+       <Link to="/"><img className="Logo" src={Logo} alt="" /></Link>
         <Quotes/> 
         <Weather/>
         <h3>Hello {name.length === 0 ? 'There' : name}!</h3>

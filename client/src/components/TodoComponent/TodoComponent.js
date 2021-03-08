@@ -3,6 +3,9 @@ import React, {useState, useEffect} from 'react'
 import InputTodo from './InputTodo/InputTodo'
 import ListTodos from './ListTodos/ListTodos'
 
+//Styles 
+import './TodoComponent.scss'
+
 export default function TodoComponent() {
 
   const [allTodos, setAllTodos] = useState([]);
@@ -34,7 +37,7 @@ export default function TodoComponent() {
     
     return (
         <div>
-            <h2>Todos</h2>
+            <h2>To do</h2>
             <InputTodo setTodosChange={setTodosChange} />
             <ListTodos allTodos={allTodos} setTodosChange={setTodosChange} />
         </div>

@@ -11,7 +11,6 @@ import {
 
 import './CalendarPlugin.scss'
 
-import Loader from "react-loader-spinner";
 import {toast} from "react-toastify";
 
 export default function CalendarPlugin() {

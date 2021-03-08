@@ -45,9 +45,11 @@ export default function ListNotes({allNotes, setNotesChange}) {
                 notes.length !== 0 && notes[0].note_id !== null &&
                 notes.map(note => (
                     <tr key={note.note_id}>
+                      <div className="note" >
                       <td>{note.description.length >= 15 ? note.description.substring(0,25) : note.description}</td>
                       <td><EditNote note={note} className="Ebtn" setNotesChange={setNotesChange} /></td>
                       <td><Button color="red" className="Dbtn"  icon="trash" onClick={() => deleteNote(note.note_id)} /></td>
+                      </div>
                     </tr>
                 )) 
             }

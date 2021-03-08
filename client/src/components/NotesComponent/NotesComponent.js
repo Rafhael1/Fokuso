@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react'
 import InputNote from './InputNote/InputNote'
 import ListNotes from './ListNotes/ListNotes'
 
+import './NotesComponent.scss'
+
 export default function NotesComponent() {
 
     const [allNotes, setAllNotes] = useState([]);

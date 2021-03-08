@@ -16,8 +16,8 @@ import Register from './components/Authentication/Register/Register'
 import Loader from 'react-loader-spinner'
 
 //pages
-import Dashboard from './pages/Dashboard/Dashboard'
-import Home from './pages/Home/Home';
+import Dashboard from './containers/Dashboard/Dashboard'
+import Home from './containers/Home/Home';
 
 toast.configure()
 

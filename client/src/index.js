@@ -5,11 +5,7 @@ import { CookiesProvider } from 'react-cookie';
 
 import 'semantic-ui-css/semantic.min.css'
 
-
-
 ReactDOM.render(
-  <CookiesProvider>
-    <App />
-  </CookiesProvider>,
+    <App />,
   document.getElementById('root')
 );
