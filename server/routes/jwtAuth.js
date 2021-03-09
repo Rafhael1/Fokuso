@@ -54,8 +54,8 @@ router.post("/login", validInfo, async(req,res) => {
             email
         ]);
 
-        if(user.rowCount.length === 0) {
-            return res.status(401).json("Password or email is incorrect")
+        if(user.rows.length === 0) {
+            return res.status(401).json("Invalid Credentials")
         }
 
         //check if incoming password is the same 
@@ -77,11 +77,9 @@ router.post("/login", validInfo, async(req,res) => {
     }
 })
 
-router.post("/verify", authorization, async(req, res) => {
+router.post("/verify", authorization, (req, res) => {
     try {
-
-        res.json(true);
-        
+        res.json(true);     
     } catch (error) {
         console.log(error.message)
         res.status(500).send("Server Error")

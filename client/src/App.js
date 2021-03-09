@@ -25,8 +25,6 @@ function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const [loader, setLoader] = useState(false);
-
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean)
   }

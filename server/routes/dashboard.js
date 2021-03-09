@@ -5,9 +5,6 @@ const authorization = require('../middleware/authorization');
  // all todos and name
 router.get('/', authorization, async(req,res) => {
     try {
-        
-        //res.json(req.user)
-
         const user = await pool.query(
             // add notes
             "SELECT users.user_name, workspace_todo.todo_id, workspace_todo.description  FROM users LEFT JOIN workspace_todo ON users.user_id = workspace_todo.user_id WHERE users.user_id = $1",

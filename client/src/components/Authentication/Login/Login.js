@@ -57,7 +57,6 @@ export default function Login({setAuth, setLoader}) {
         localStorage.setItem("token", parseRes.jwtToken);
         setAuth(true);
         toast.success("Logged in Successfully");
-        setLoader(false)
       } else {
         setAuth(false);
         toast.error(parseRes);
