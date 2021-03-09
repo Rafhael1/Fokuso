@@ -18,8 +18,9 @@ export default function EditTodo({todo, setTodosChange}) {
         myHeaders.append("Content-type", "application/json")
         myHeaders.append("jwt_token", localStorage.token)
 
+        const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/todos/${todo.todo_id}` : `http://localhost:5000/dashboard/todos/${todo.todo_id}`
 
-        await fetch(`http://localhost:5000/dashboard/todos/${todo.todo_id}`, {
+        await fetch(baseURL, {
           method: "PUT",
           headers: myHeaders,
           body: JSON.stringify(body)

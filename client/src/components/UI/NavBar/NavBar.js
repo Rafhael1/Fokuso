@@ -21,6 +21,9 @@ export default function NavBar() {
 
   const getName = async() => {
     try {
+
+      const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/` : `http://localhost:5000/dashboard/`
+
       const res = await fetch("http://localhost:5000/dashboard/", {
         method: "GET",
         headers: {

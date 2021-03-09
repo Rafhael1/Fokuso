@@ -27,9 +27,11 @@ export default function InputTodo({setTodosChange}) {
     
                 myHeaders.append("Content-type", "application/json")
                 myHeaders.append("jwt_token", localStorage.token)
-    
+
+                const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/todos` : `http://localhost:5000/dashboard/todos`
+
                 const body = {description};
-                const response = await fetch("http://localhost:5000/dashboard/todos", {
+                const response = await fetch(baseURL, {
                     method: "POST",
                     headers: myHeaders,
                     body: JSON.stringify(body)

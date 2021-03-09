@@ -11,7 +11,10 @@ export default function ListNotes({allNotes, setNotesChange}) {
 
   const deleteNote = async id => {
     try {
-      await fetch(`http://localhost:5000/dashboard/notes/${id}`, {
+
+      const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/notes/${id}` : `http://localhost:5000/dashboard/notes/${id}`
+
+      await fetch(baseURL, {
         method: 'DELETE',
         headers: {
           jwt_token: localStorage.token

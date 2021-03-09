@@ -14,7 +14,10 @@ export default function NotesComponent() {
 
   const getProfile = async () => {
     try {
-      const res = await fetch("http://localhost:5000/dashboard/notes", {
+
+      const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/notes/` : `http://localhost:5000/dashboard/notes/`
+
+      const res = await fetch(baseURL, {
         method: "GET",
         headers: { jwt_token: localStorage.token }
       });

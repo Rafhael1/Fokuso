@@ -1,34 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 
 import './Quotes.scss'
 
 export default function Quotes() {
 
-    const [quote, setQuote] = useState()
-    const [quoteAuthor, setQuoteAuthor] = useState()
+  const [quote,
+    setQuote] = useState()
+  const [quoteAuthor,
+    setQuoteAuthor] = useState()
 
-    const getQuotes = async() => {
-       try {
-            const response = await fetch(`http://localhost:5000/quotes`);
- 
-            const jsonData = await response.json();
+  const getQuotes = async() => {
+    try {
 
-            setQuote(jsonData.quote)
+        const baseURL = process.env.NODE_ENV === 'production' ? `quotes` : `http://localhost:5000/quotes`
 
-            setQuoteAuthor(jsonData.author)
+      const response = await fetch(baseURL);
 
-        } catch (error) {
-            console.log(error.message)
-        }
+      const jsonData = await response.json();
+
+      setQuote(jsonData.quote)
+
+      setQuoteAuthor(jsonData.author)
+
+    } catch (error) {
+      console.log(error.message)
     }
-    
-    useEffect(() => {
-        getQuotes()
-    }, [])
+  }
 
-    return (
-        <div className="Quotes">
-            <p>"{quote}" - {quoteAuthor}</p>
-        </div>
-    )
+  useEffect(() => {
+    getQuotes()
+  }, [])
+
+  return (
+    <div className="Quotes">
+      <p>"{quote}" - {quoteAuthor}</p>
+    </div>
+  )
 }

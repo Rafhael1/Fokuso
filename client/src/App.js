@@ -33,8 +33,10 @@ function App() {
 
   const isAuth = async() => {
     try {
+
+      const baseURL = process.env.NODE_ENV === 'production' ? `auth/verify` : `http://localhost:5000/auth/verify`
       
-      const response = await fetch("http://localhost:5000/auth/verify", {
+      const response = await fetch(baseURL, {
         method: "POST",
         headers: { jwt_token: localStorage.token }
       });

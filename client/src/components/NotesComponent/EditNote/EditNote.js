@@ -17,8 +17,9 @@ export default function EditNote({note, setNotesChange}) {
         myHeaders.append("Content-type", "application/json")
         myHeaders.append("jwt_token", localStorage.token)
 
+        const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/notes/${note.note_id}` : `http://localhost:5000/dashboard/notes/${note.note_id}`
 
-        await fetch(`http://localhost:5000/dashboard/notes/${note.note_id}`, {
+        await fetch(baseURL, {
           method: "PUT",
           headers: myHeaders,
           body: JSON.stringify(body)
