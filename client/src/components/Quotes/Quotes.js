@@ -12,7 +12,7 @@ export default function Quotes() {
   const getQuotes = async() => {
     try {
 
-        const baseURL = process.env.NODE_ENV === 'production' ? `quotes` : `http://localhost:5000/api/quotes`
+        const baseURL = process.env.NODE_ENV === 'production' ? `api/quotes` : `http://localhost:5000/api/quotes`
 
       const response = await fetch(baseURL);
 
