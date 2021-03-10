@@ -22,9 +22,9 @@ export default function NavBar() {
   const getName = async() => {
     try {
 
-      const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/` : `http://localhost:5000/dashboard/`
+      const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/alltodos` : `http://localhost:5000/api/dashboard/alltodos`
 
-      const res = await fetch("http://localhost:5000/api/dashboard/", {
+      const res = await fetch(baseURL, {
         method: "GET",
         headers: {
           jwt_token: localStorage.token

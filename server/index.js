@@ -32,7 +32,6 @@ app.get('/api/quotes', (req, res) => {
 })
 
 
-
 app.listen(port, () => {
     console.log("Server has started on http://localhost:5000")
 });

@@ -3,7 +3,7 @@ const pool = require("../db");
 const authorization = require('../middleware/authorization');
 
  // all todos and name
-router.get('/', authorization, async(req,res) => {
+router.get('/alltodos', authorization, async(req,res) => {
     try {
         const user = await pool.query(
             // add notes
