@@ -39,7 +39,7 @@ export default function Home() {
             </Menu.Item>
             <Menu.Item position='right'>
               <Link to="/login"><Button inverted color="white" content="Login"/></Link>
-              <Link to="/register"><Button color="purple" content="Sign Up"/></Link>
+              <Link to="/signup"><Button color="purple" content="Sign Up"/></Link>
             </Menu.Item>
           </Menu>
         </nav>
@@ -88,7 +88,7 @@ export default function Home() {
                 <h2>
                   So waste no more time and sign up!
                 </h2>
-                <Link to="register"><Button icon="signup" color="purple" content="Sign Up" size="huge"/></Link>
+                <Link to="/signup"><Button icon="signup" color="purple" content="Sign Up" size="huge"/></Link>
               </Grid.Column>
 
               <Grid.Column verticalAlign='middle'>

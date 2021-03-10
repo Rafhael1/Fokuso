@@ -12,7 +12,7 @@ import Logo from '../../../Images/Fokuso.png'
 
 import {Link} from "react-router-dom";
 
-export default function Register({setAuth}) {
+export default function SignUp({setAuth}) {
 
   const [inputs,
     setInputs] = useState({name: "", email: "", password: ""})
@@ -99,7 +99,7 @@ export default function Register({setAuth}) {
             value={password}
             onChange={e => onChange(e)}/>
         </Form.Field>
-        <Button color="purple" type='submit'>Submit</Button>
+        <Button color="purple" type='submit'>Sign Up</Button>
       </Form>
       <Link to="/login">
         <Button inverted content='Login' icon='sign in alternate' color="purple"></Button>

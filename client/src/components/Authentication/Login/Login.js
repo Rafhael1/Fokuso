@@ -101,7 +101,7 @@ export default function Login({setAuth, setLoader}) {
           </Grid.Column>
 
           <Grid.Column verticalAlign='middle'>
-            <Link to="/register">
+            <Link to="/signup">
               <Button content='Sign up' icon='signup' size='big' inverted color="purple"></Button>
             </Link>
           </Grid.Column>

@@ -11,11 +11,6 @@ const path = require("path")
 app.use(cors());
 app.use(express.json()); //req body
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "client/build")))
-}
-
-console.log(__dirname)
 
 //Routes
 app.use('/api/auth', require('./routes/jwtAuth'))

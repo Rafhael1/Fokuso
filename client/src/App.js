@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css"
 //components 
 
 import Login from './components/Authentication/Login/Login'
-import Register from './components/Authentication/Register/Register'
+import SignUp from './components/Authentication/SignUp/SignUp'
 
 import Loader from 'react-loader-spinner'
 
@@ -57,7 +57,7 @@ function App() {
                 <div>
                 <Switch>
                     <Route exact path="/login" render={props => !isAuthenticated  ? <Login {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
-                    <Route exact path="/register" render={props => !isAuthenticated ? <Register {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
+                    <Route exact path="/signup" render={props => !isAuthenticated ? <SignUp {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
                     <Route exact path="/dashboard" render={props =>  isAuthenticated ? <Dashboard {...props} setAuth={setAuth} /> : <Redirect to="/login" />}></Route>
                     <Route exact path="/" render={props =>  !isAuthenticated ? <Home {...props} /> : <Redirect to="/dashboard" />}></Route>
                 </Switch>
