@@ -36,7 +36,7 @@ export default function Register({setAuth}) {
         password
       };
 
-      const baseURL = process.env.NODE_ENV === 'production' ? "auth/register" : "http://localhost:5000/auth/register"
+      const baseURL = process.env.NODE_ENV === 'production' ? "api/auth/register" : "http://localhost:5000/api/auth/register"
 
       const response = await fetch(baseURL, {
         method: "POST",

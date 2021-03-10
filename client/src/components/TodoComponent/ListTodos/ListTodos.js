@@ -11,8 +11,10 @@ export default function ListTodos({allTodos, setTodosChange}) {
 
     const deleteTodo = async(id) => {
         try {
+            
+            const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/todos/${id}` : `http://localhost:5000/api/dashboard/todos/${id}`
 
-            await fetch(`http://localhost:5000/dashboard/todos/${id}`,{
+            await fetch(baseURL,{
                 method: "DELETE",
                 headers: {jwt_token: localStorage.token}
             });

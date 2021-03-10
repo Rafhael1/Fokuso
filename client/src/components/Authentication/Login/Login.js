@@ -41,7 +41,7 @@ export default function Login({setAuth, setLoader}) {
         password
       }
 
-      const baseURL = process.env.NODE_ENV === 'production' ? "auth/login" : "http://localhost:5000/auth/login"
+      const baseURL = process.env.NODE_ENV === 'production' ? "api/auth/login" : "http://localhost:5000/api/auth/login"
 
       const response = await fetch(baseURL, {
         method: "POST",

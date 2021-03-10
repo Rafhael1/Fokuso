@@ -24,7 +24,7 @@ export default function NavBar() {
 
       const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/` : `http://localhost:5000/dashboard/`
 
-      const res = await fetch("http://localhost:5000/dashboard/", {
+      const res = await fetch("http://localhost:5000/api/dashboard/", {
         method: "GET",
         headers: {
           jwt_token: localStorage.token

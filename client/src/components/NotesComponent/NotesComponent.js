@@ -15,7 +15,7 @@ export default function NotesComponent() {
   const getProfile = async () => {
     try {
 
-      const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/notes/` : `http://localhost:5000/dashboard/notes/`
+      const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/notes/` : `http://localhost:5000/api/dashboard/notes/`
 
       const res = await fetch(baseURL, {
         method: "GET",

@@ -12,7 +12,7 @@ export default function ListNotes({allNotes, setNotesChange}) {
   const deleteNote = async id => {
     try {
 
-      const baseURL = process.env.NODE_ENV === 'production' ? `dashboard/notes/${id}` : `http://localhost:5000/dashboard/notes/${id}`
+      const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/notes/${id}` : `http://localhost:5000/api/dashboard/notes/${id}`
 
       await fetch(baseURL, {
         method: 'DELETE',
