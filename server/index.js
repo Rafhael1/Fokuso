@@ -18,16 +18,16 @@ if (process.env.NODE_ENV === "production") {
 console.log(__dirname)
 
 //Routes
-app.use('/auth', require('./routes/jwtAuth'))
+app.use('/api/auth', require('./routes/jwtAuth'))
 
 
 // dashboard
 
-app.use('/dashboard', require("./routes/dashboard"))
+app.use('/api/dashboard', require("./routes/dashboard"))
 
 // quotes api
 
-app.get('/quotes', (req, res) => {
+app.get('/api/quotes', (req, res) => {
     try {
        const response =  quotes[Math.floor(Math.random() * 22)];
        res.json(response)
