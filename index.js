@@ -2,15 +2,18 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 const cors = require('cors');
-const pool = require("./db");
 const quotes = require("./api/quotes")
-const path = require("path")
+const path = require("path");
+const send = require('send');
 
 //middleware
 
 app.use(cors());
 app.use(express.json()); //req body
 
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "client/build")))
+}
 
 //Routes
 app.use('/api/auth', require('./routes/jwtAuth'))
@@ -31,7 +34,10 @@ app.get('/api/quotes', (req, res) => {
     }
 })
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"))
+})
 
 app.listen(port, () => {
-    console.log("Server has started on http://localhost:5000")
+    console.log(`Server has started on ${port}`)
 });

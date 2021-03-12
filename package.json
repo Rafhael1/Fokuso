@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "15.11.0",
+    "npm": "7.6.0",
+    "yarn": "1.22.5"
+  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
