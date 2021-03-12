@@ -10,9 +10,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js",
-    "client": "yarn --cwd ./client run start",
-    "dev": "concurrently -k \"yarn run server\" \"yarn run client\" "
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
