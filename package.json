@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "15.11.0",
-    "npm": "7.6.0",
-    "yarn": "1.22.5"
-  },
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "server": "nodemon index.js",
+    "client": "yarn --cwd ../client run start",
+    "dev": "concurrently -k \"yarn run server\" \"yarn run client\" ",
+    "heroku-postbuild": "cd client && yarn install && yarn build"
   },
   "author": "",
   "license": "ISC",
