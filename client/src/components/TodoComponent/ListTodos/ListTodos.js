@@ -16,7 +16,7 @@ export default function ListTodos({allTodos, setTodosChange}) {
 
             await fetch(baseURL,{
                 method: "DELETE",
-                headers: {jwt_token: localStorage.token}
+                headers: {token: localStorage.token}
             });
 
            setTodos(todos.filter(todo => todo.todo_id !== id));

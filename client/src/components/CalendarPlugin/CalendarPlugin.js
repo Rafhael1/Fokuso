@@ -153,11 +153,15 @@ export default function CalendarPlugin() {
     <div className="Calendar">
       <main>
         {logged === false
-          ? <Button content=" Connect To Google Calendar" color="red" icon="google" onClick={getEvents}/>
+          ? <Button
+              content=" Connect To Google Calendar"
+              color="red"
+              icon="google"
+              onClick={getEvents}/>
           : <Modal
             closeIcon
             open={open}
-            trigger={<Button className="plus" content="New Event" size="big" icon="plus"></Button>}
+            trigger={< Button className = "plus" content = "New Event" size = "big" icon = "plus" > </Button>}
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}>
             <Header icon='calendar alternate' content='Add Event To Calendar'/>
@@ -196,14 +200,15 @@ export default function CalendarPlugin() {
               </Button>
             </Modal.Actions>
           </Modal>
-        }
+}
         <ul>
           {events.map(event => (
             <li>
-              {event.start.date} | {event.summary}
+              {event.start.date}
+              | {event.summary}
             </li>
           ))
-          }
+}
         </ul>
       </main>
     </div>

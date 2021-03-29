@@ -16,7 +16,7 @@ export default function EditTodo({todo, setTodosChange}) {
         const myHeaders = new Headers()
 
         myHeaders.append("Content-type", "application/json")
-        myHeaders.append("jwt_token", localStorage.token)
+        myHeaders.append("token", localStorage.token)
 
         const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/todos/${todo.todo_id}` : `http://localhost:5001/api/dashboard/todos/${todo.todo_id}`
 

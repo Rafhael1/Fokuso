@@ -17,7 +17,7 @@ export default function ListNotes({allNotes, setNotesChange}) {
       await fetch(baseURL, {
         method: 'DELETE',
         headers: {
-          jwt_token: localStorage.token
+          token: localStorage.token
         }
       })
 

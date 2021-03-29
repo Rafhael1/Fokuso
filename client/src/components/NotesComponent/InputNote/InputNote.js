@@ -26,7 +26,7 @@ export default function InputNote({setNotesChange}) {
         const myHeader = new Headers()
 
         myHeader.append("Content-type", "application/json")
-        myHeader.append("jwt_token", localStorage.token)
+        myHeader.append("token", localStorage.token)
 
         const body = {
           description
