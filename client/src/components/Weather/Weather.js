@@ -74,7 +74,7 @@ export default class Weather extends Component {
                         date.getHours() <= 12 ? <h4>{date.getHours()} am</h4> : null
                     }
                 </li>
-                <li><i onClick={this.setWeatherEmpty} ><Icon name="close" size="small" /></i></li>
+                <li><i onClick={this.setWeatherEmpty} ><Icon name="close" size="" /></i></li>
             </ul>
           </div>
         }

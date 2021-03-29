@@ -161,7 +161,7 @@ export default function CalendarPlugin() {
           : <Modal
             closeIcon
             open={open}
-            trigger={< Button className = "plus" content = "New Event" size = "big" icon = "plus" > </Button>}
+            trigger={<Button className ="plus" content ="New Event" size ="big" icon ="plus" ></Button>}
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}>
             <Header icon='calendar alternate' content='Add Event To Calendar'/>
