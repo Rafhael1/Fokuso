@@ -36,7 +36,7 @@ function App() {
       
       const response = await fetch(baseURL, {
         method: "POST",
-        headers: { jwt_token: localStorage.token }
+        headers: { token: localStorage.token }
       });
 
       const parseRes = await response.json()

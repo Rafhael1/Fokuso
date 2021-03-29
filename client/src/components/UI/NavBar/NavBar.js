@@ -27,7 +27,7 @@ export default function NavBar() {
       const res = await fetch(baseURL, {
         method: "GET",
         headers: {
-          jwt_token: localStorage.token
+          token: localStorage.token
         }
       });
 

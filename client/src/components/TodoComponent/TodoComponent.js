@@ -18,7 +18,7 @@ export default function TodoComponent() {
 
       const res = await fetch(baseURL, {
         method: "GET",
-        headers: { jwt_token: localStorage.token }
+        headers: { token: localStorage.token }
       });
 
       const parseData = await res.json();
