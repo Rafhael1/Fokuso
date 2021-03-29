@@ -22,7 +22,7 @@ export default function NavBar() {
   const getName = async() => {
     try {
 
-      const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/alltodos` : `http://localhost:5000/api/dashboard/alltodos`
+      const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/alltodos` : `http://localhost:5001/api/dashboard/alltodos`
 
       const res = await fetch(baseURL, {
         method: "GET",

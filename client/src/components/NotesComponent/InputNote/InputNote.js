@@ -32,7 +32,7 @@ export default function InputNote({setNotesChange}) {
           description
         }
 
-        const baseURL = process.env.NODE_ENV === 'production' ? "api/dashboard/notes" : "http://localhost:5000/api/dashboard/notes"
+        const baseURL = process.env.NODE_ENV === 'production' ? "api/dashboard/notes" : "http://localhost:5001/api/dashboard/notes"
 
         const response = await fetch(baseURL, {
           method: 'POST',

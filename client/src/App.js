@@ -32,7 +32,7 @@ function App() {
   const isAuth = async() => {
     try {
 
-      const baseURL = process.env.NODE_ENV === 'production' ? `api/auth/verify` : `http://localhost:5000/api/auth/verify`
+      const baseURL = process.env.NODE_ENV === 'production' ? `api/auth/verify` : `http://localhost:5001/api/auth/verify`
       
       const response = await fetch(baseURL, {
         method: "POST",
