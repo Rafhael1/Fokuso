@@ -84,7 +84,7 @@ export default function EditTodo({todo, setTodosChange}) {
              }}>
             Cancel
           </Button>
-          <Button  color="green" onClick={(e) => {
+          <Button className="TodoButton"  color="green" onClick={(e) => {
             dispatch({ type: 'close' });
             updateTodo(e);
              }}>

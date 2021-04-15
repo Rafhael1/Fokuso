@@ -32,29 +32,20 @@ export default function ListTodos({allTodos, setTodosChange}) {
 
     return (
         <div className="ListTodos" >
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody className="ListTodos" >
-                    {
-                        todos.length !== 0 && todos[0].todo_id !== null && 
-                        todos.map(todo => (
-                            <tr key={todo.todo_id} >
-                                <div  className="todo">
-                                <td>{todo.description.length >= 20 ? todo.description.substring(0, 25) : todo.description }</td>
-                                <td> <EditTodo todo={todo} setTodosChange={setTodosChange} /> </td>
-                                <td><Button color="red" className="Dbtn"  icon="trash" onClick={() => deleteTodo(todo.todo_id)} /> </td>
-                                </div>
-                            </tr>         
-                        ))
-                    }
-                </tbody>
-            </table>
+            <div>
+               <div className="ListTodos">
+               {
+                    todos.length !== 0 && todos[0].todo_id !== null && 
+                    todos.map(todo => (
+                        <div className="todo" key={todo.todo_id}>
+                            <p>{todo.description}</p> 
+                            <EditTodo todo={todo} setTodosChange={setTodosChange} /> 
+                            <Button color="red" className="Dbtn TodoButton"  icon="trash" onClick={() => deleteTodo(todo.todo_id)} />
+                        </div>
+                    ))
+                }
+               </div>
+            </div>
         </div>
     )
 }

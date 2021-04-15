@@ -11,7 +11,6 @@ import
   Container,
   Menu,
   Grid,
-  Header
 }
 from 'semantic-ui-react'
 
@@ -57,7 +56,7 @@ export default function Home() {
               </Grid.Column>
 
               <Grid.Column verticalAlign='middle'>
-                <img src={TaskList}/>
+                <img src={TaskList} alt="" />
               </Grid.Column>
             </Grid>
 
@@ -67,6 +66,7 @@ export default function Home() {
               <Grid.Column>
                 <img
                   src={Coding}
+                  alt=""
                   style={{
                   height: '440px'
                 }}/>
@@ -98,6 +98,7 @@ export default function Home() {
               <Grid.Column verticalAlign='middle'>
                 <img
                   src={ManLaptop}
+                  alt=""
                   style={{
                   height: '440px'
                 }}/>

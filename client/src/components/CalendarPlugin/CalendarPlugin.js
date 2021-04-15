@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 
 import {
   Button,
-  Form,
   Input,
   Header,
   Icon,
@@ -14,24 +13,23 @@ import './CalendarPlugin.scss'
 import {toast} from "react-toastify";
 
 export default function CalendarPlugin() {
-
-  const [open,
-    setOpen] = React.useState(false) // Modal
-  const [date,
-    setDate] = useState('')
-  const [endDate,
-    setEndDate] = useState('')
-  const [title,
-    setTitle] = useState('')
-  const [events,
-    setEvents] = useState([])
-  const [logged,
-    setLogged] = useState(false)
-
-  let gapi = window.gapi
-
+  
   const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
   const CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID
+
+  const [open,setOpen] = React.useState(false) // Modal
+
+  const [date,setDate] = useState('')
+
+  const [endDate,setEndDate] = useState('')
+
+  const [title,setTitle] = useState('')
+
+  const [events,setEvents] = useState([])
+
+  const [logged,setLogged] = useState(false)
+
+  let gapi = window.gapi
 
   const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
   const SCOPES = "https://www.googleapis.com/auth/calendar.events";

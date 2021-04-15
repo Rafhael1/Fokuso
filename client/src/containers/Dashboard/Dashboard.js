@@ -44,7 +44,6 @@ const Dashboard = ({setAuth}) => {
         <section>
           <CalendarPlugin/>
         </section>
-
       </Container>
      <footer>
        <div>

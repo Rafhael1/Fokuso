@@ -90,7 +90,6 @@ export default function Login({setAuth, setLoader}) {
                 iconPosition='left'
                 label='Password'
                 type='password'
-                type="password"
                 name="password"
                 placeholder="password"
                 value={password}
