@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // styles
 import './Dashboard.scss'
@@ -14,7 +14,7 @@ import NavBar from '../../components/UI/NavBar/NavBar'
 
 import {toast} from "react-toastify"
 
-export default function Dashboard({setAuth}) {
+const Dashboard = ({setAuth}) => {
 
   const logout = async e => {
     e.preventDefault();
@@ -26,6 +26,10 @@ export default function Dashboard({setAuth}) {
       console.error(err.message);
     }
   };
+
+  useEffect(() => {
+    document.title = "Fokuso | Dashboard"
+  })
 
   return (
     <div className="DashboardBody">
@@ -50,3 +54,5 @@ export default function Dashboard({setAuth}) {
     </div>
   )
 }
+
+export default Dashboard

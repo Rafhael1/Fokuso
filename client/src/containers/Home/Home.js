@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {Link} from 'react-router-dom'
 
@@ -23,6 +23,10 @@ import TaskList from '../../Images/Vector/task_list.svg'
 import './Home.scss'
 
 export default function Home() {
+
+  useEffect(() => {
+    document.title = "Fokuso | Home"
+  })
 
   return (
     <div className="Home">

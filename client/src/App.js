@@ -16,7 +16,7 @@ import SignUp from './components/Authentication/SignUp/SignUp'
 import Loader from 'react-loader-spinner'
 
 //pages
-import Dashboard from './containers/Dashboard/Dashboard'
+import Dashboard from './containers/Dashboard/Dashboard.tsx'
 import Home from './containers/Home/Home';
 
 toast.configure()
@@ -52,7 +52,7 @@ function App() {
   }, [])
 
   return (
-     <div>
+     <div className="App">
      <Router>
                 <div>
                 <Switch>
