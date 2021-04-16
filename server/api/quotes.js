@@ -87,9 +87,27 @@ const quotes = [
     {
         quote: "A friend to all is a friend to none.",
         author: "Aristotle"
-    }
-
-  
+    },
+    {
+        quote: "good people do not need laws to tell them to act responsibly, while bad people will find a way around the laws",
+        author: "Plato"
+    },
+    {
+        quote: "Courage is knowing what not to fear.",
+        author: "Plato"
+    },
+    {
+        quote: "The only true wisdom is in knowing you know nothing.",
+        author: "Socrates"
+    },
+    {
+        quote: "Wonder is the beginning of wisdom.",
+        author: "Socrates"
+    },
+    {
+        quote: "To find yourself, think for yourself.",
+        author: "Socrates"
+    },
 ]
 
 module.exports = quotes;
