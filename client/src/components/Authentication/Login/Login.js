@@ -4,11 +4,8 @@ import React, {useState} from 'react'
 import {toast} from "react-toastify";
 import {
   Container,
-  Button,
-  Divider,
-  Form,
-  Grid,
-  Segment
+  Icon,
+  Grid
 } from 'semantic-ui-react'
 import '../Form.scss'
 
@@ -69,7 +66,37 @@ export default function Login({setAuth, setLoader}) {
   }
 
   return (
-    <Container className="formContainer login">
+    <Container >
+    <Link to="/"><img style={{height: '100px'}} src={Logo} alt=""/></Link>
+      <div className="FormContainer" >
+      <h1>Login</h1>
+        <Container>
+        <form onSubmit={onSubmitForm} >
+          <div className="inputContainer" >
+            <Icon name="mail" size="large" />
+            <input
+              placeholder='Email'
+              type="email"
+              name="email"
+              value={email}
+              onChange={e => onChange(e)}
+            />
+          </div>
+          <div className="inputContainer" >
+            <Icon name="lock" size="large" />
+            <input 
+              type='password'
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => onChange(e)}
+            />
+          </div>
+          <button>Login</button>
+        </form>
+        </Container>
+      </div>
+    {/*<div className="formContainer login">
       <Link to="/"><img className="Logo" src={Logo} alt=""/></Link>
       <h1>Login</h1>
       <Segment placeholder>
@@ -108,6 +135,8 @@ export default function Login({setAuth, setLoader}) {
 
         <Divider vertical>Or</Divider>
       </Segment>
-    </Container>
+    </div>
+  */}
+  </Container>
   )
 }

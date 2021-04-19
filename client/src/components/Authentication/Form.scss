@@ -1,34 +1,43 @@
-.formContainer {
-
-    margin: 50px auto;
-    
+.FormContainer {
     h1 {
         text-align: center;
         font-size: 45px;
         color: white;
-        text-shadow: 1px 2px black;
+        text-shadow: 1px 2px rgb(27, 27, 27);
         font-family: 'Quicksand', sans-serif !important;
     }
-    form {
-        font-family: 'Quicksand', sans-serif !important;
+    button{
+        margin: 0 auto;
+        padding: 11px 21px;
+        display: flex;
+        color: white;
+        font-size: 18px;
+        border: 0px;
+        border-radius: 5px;
+        background-color: rgb(154, 46, 255);
+        transition: 0.5s;
     }
-    .Logo {
-        height: 100px !important;
+    button:hover{
+        cursor: pointer;
+        background-color: rgb(125, 38, 206);
+
     }
-}
-
-.register {
-    form {
-        display: inline;
-
-        .FormInput {
-            width: 100%;
-            padding: 15px;
-            margin: 5px;
+    .inputContainer {
+        border: 0px;
+        border-radius: 5px;
+        background-color: whitesmoke;
+        margin: 10px auto;
+        padding: 5px 5px 5px 10px;
+        width: 320px;
+        input {
+            border: 0px;
+            background-color: transparent;
+            padding: 10px;
+            width: 90%;
         }
-
         input:focus {
             outline: none;
         }
+        
     }
 }
