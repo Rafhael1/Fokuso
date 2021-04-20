@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 
 // styles
 import {toast} from "react-toastify";
@@ -65,6 +65,10 @@ export default function Login({setAuth, setLoader}) {
     }
   }
 
+  useEffect(() => {
+    document.title = "Fokuso | Login"
+  }, [])
+
   return (
     <Container >
     <Link to="/"><img style={{height: '100px'}} src={Logo} alt=""/></Link>
@@ -96,47 +100,6 @@ export default function Login({setAuth, setLoader}) {
         </form>
         </Container>
       </div>
-    {/*<div className="formContainer login">
-      <Link to="/"><img className="Logo" src={Logo} alt=""/></Link>
-      <h1>Login</h1>
-      <Segment placeholder>
-        <Grid columns={2} relaxed='very' stackable>
-          <Grid.Column>
-            <Form onSubmit={onSubmitForm}>
-              <Form.Input
-                icon='mail'
-                iconPosition='left'
-                label='Email'
-                placeholder='Email'
-                type="email"
-                name="email"
-                value={email}
-                onChange={e => onChange(e)}/>
-              <Form.Input
-                icon='lock'
-                iconPosition='left'
-                label='Password'
-                type='password'
-                name="password"
-                placeholder="password"
-                value={password}
-                onChange={e => onChange(e)}/>
-
-              <Button content='Login' color="purple"/>
-            </Form>
-          </Grid.Column>
-
-          <Grid.Column verticalAlign='middle'>
-            <Link to="/signup">
-              <Button content='Sign up' icon='signup' size='big' inverted color="purple"></Button>
-            </Link>
-          </Grid.Column>
-        </Grid>
-
-        <Divider vertical>Or</Divider>
-      </Segment>
-    </div>
-  */}
   </Container>
   )
 }

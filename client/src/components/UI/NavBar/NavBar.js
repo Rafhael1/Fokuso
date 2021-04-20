@@ -48,11 +48,11 @@ export default function NavBar() {
   }, [])
 
   return (
-    <header>    
+    <nav className="DashboardNav" >    
       <img  className="Logo" src={Logo} alt="" />
       <Quotes/> 
       <Weather/>
       <h3>Hello {name.length === 0 ? 'There' : name}!</h3>
-    </header>
+    </nav>
   )
 }

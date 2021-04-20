@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 // styles
 
 import '../Form.scss'
-import {Container, Button, Form} from 'semantic-ui-react'
+import {Container, Icon} from 'semantic-ui-react'
 import {toast} from "react-toastify";
 
 import Logo from '../../../Images/Fokuso.png'
@@ -61,49 +61,51 @@ export default function SignUp({setAuth}) {
     }
   }
 
+  useEffect(() => {
+    document.title = "Fokuso | Sign Up"
+  }, [])
+
   return (
     <Container className="formContainer register">
-      <Link to="/"><img className="Logo" src={Logo} alt=""/></Link>
-      <h1>Sign Up</h1>
-      <Form onSubmit={onSubmitForm}>
-        <Form.Field>
-          <label>Username</label>
-          <Form.Input
-            icon='user'
-            iconPosition='left'
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={name}
-            onChange={e => onChange(e)}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Email</label>
-          <Form.Input
-            icon='mail'
-            iconPosition='left'
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => onChange(e)}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-          <Form.Input
-            icon='lock'
-            iconPosition='left'
-            type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={e => onChange(e)}/>
-        </Form.Field>
-        <Button color="purple" type='submit'>Sign Up</Button>
-      </Form>
-      <Link to="/login">
-        <Button inverted content='Login' icon='sign in alternate' color="purple"></Button>
-      </Link>
+      <Link to="/"><img style={{height: '100px'}} src={Logo} alt=""/></Link>
+      <div className="FormContainer" >
+        <h1>Sign Up</h1>
+        <Container>
+          <form onSubmit={onSubmitForm}>
+            <div className="inputContainer">
+              <Icon name="user" size="large" />
+              <input 
+                type="text"
+                placeholder="Name"
+                value={name}
+                name="name"
+                onChange={e => onChange(e)}
+                />
+            </div>
+            <div className="inputContainer">
+            <Icon name="mail" size="large" />
+              <input 
+                type="email"
+                placeholder="Email"
+                value={email}
+                name="email"
+                onChange={e => onChange(e)}
+                />
+            </div>
+            <div className="inputContainer">
+              <Icon name="lock" size="large" />
+              <input 
+                type="password"
+                placeholder="Password"
+                value={password}
+                name="password"
+                onChange={e => onChange(e)}
+                />
+            </div>
+            <button>Sign Up</button>
+          </form>
+        </Container>
+      </div>
     </Container>
   )
 }

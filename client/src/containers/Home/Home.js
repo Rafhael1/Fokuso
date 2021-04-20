@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className="Home">
       <Container>
-        <nav>
+        <nav className="HomeNav" >
           <Menu
             style={{
             background: 'transparent',

@@ -1,12 +1,13 @@
-header {
+.DashboardNav {
     
     .Quotes {
         margin: 0 auto !important;
         font-family: 'Quicksand', sans-serif !important;
     }
     .Logo {
-        height: 65px !important;
-        width: 110px !important;
+        position: relative;
+        top: -15px;
+        height: 100px;
     }
 
     background-image: linear-gradient(-225deg, #f9c8ff70 0%, #d45ff865 53%, #a722ff71 100%);
