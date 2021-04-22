@@ -6,28 +6,20 @@
     section {
         display: inline-flex;
         border: 1px solid rgb(31, 31, 31);
+        text-align: center;
         box-shadow: 1px 2px 1px rgb(54, 54, 54);
         margin: 35px 15px;
         padding: 15px;
         max-width: 345px;
         border-radius: 10px;
-        text-align: center !important;
         background-color: rgba(247, 154, 255, 0.315);
+        color: rgb(60, 3, 114);
 
         h2 {
             width: 100% !important;
             text-align: center !important;
             font-family: 'Quicksand', sans-serif !important;
 
-        }
-
-        input {
-            border: 0px;
-            font-family: 'Quicksand', sans-serif !important;
-        }
-
-        input:focus {
-            outline: 0px;
         }
     }
 

@@ -58,8 +58,8 @@ export default function InputNote({setNotesChange}) {
           type="text"
           value={description}
           placeholder="New Note..."
-          size="small"
-          icon="add circle"
+          size="large"
+          icon="add"
           onChange={e => setDescription(e.target.value)}/>
       </form>
     </div>

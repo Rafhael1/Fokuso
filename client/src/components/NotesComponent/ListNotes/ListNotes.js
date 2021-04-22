@@ -35,29 +35,20 @@ export default function ListNotes({allNotes, setNotesChange}) {
 
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody className="ListNotes" >
-            {
-                notes.length !== 0 && notes[0].note_id !== null &&
-                notes.map(note => (
-                    <tr key={note.note_id}>
-                      <div className="note" >
-                      <td>{note.description.length >= 15 ? note.description.substring(0,25) : note.description}</td>
-                      <td><EditNote note={note} className="Ebtn" setNotesChange={setNotesChange} /></td>
-                      <td><Button color="red" className="Dbtn"  icon="trash" onClick={() => deleteNote(note.note_id)} /></td>
-                      </div>
-                    </tr>
-                )) 
-            }
-        </tbody>
-      </table>
+      <div>
+        <div className="ListNotes" >
+        {
+          notes.length !== 0 && notes[0].note_id !== null &&
+          notes.map(note => (
+            <div className="note" key={note.note_id} >
+              <p>{note.description}</p>
+              <EditNote note={note} className="Ebtn" setNotesChange={setNotesChange} />
+              <Button color="red" className="Dbtn"  icon="trash" onClick={() => deleteNote(note.note_id)} />
+            </div>
+          ))  
+        }
+        </div>
+      </div>
     </div>
   )
 }

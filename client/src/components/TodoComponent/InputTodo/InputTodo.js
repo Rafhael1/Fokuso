@@ -61,7 +61,7 @@ export default function InputTodo({setTodosChange}) {
           value={description}
           placeholder="New Todo..."
           size="large"
-          icon="add circle"
+          icon="add"
           onChange={e => setDescription(e.target.value)}/>
       </form>
     </div>
