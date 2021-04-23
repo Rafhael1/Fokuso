@@ -8,6 +8,11 @@ import './App.scss';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
 
+
+// cookies
+
+import { useCookies } from "react-cookie"
+
 //components 
 
 import Login from './components/Authentication/Login/Login'
@@ -17,9 +22,12 @@ import SignUp from './components/Authentication/SignUp/SignUp'
 import Dashboard from './containers/Dashboard/Dashboard'
 import Home from './containers/Home/Home';
 
+
 toast.configure()
 
 function App() {
+
+  const [ cookies, setCookie ] = useCookies(["user"])
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -43,8 +51,15 @@ function App() {
     }
   }
 
+  const handleCookie = () => {
+    setCookie("user", "gowtham", {
+      path: "/"
+    });
+  }
+
   useEffect(() => {
     isAuth();
+    handleCookie()
   }, [])
 
   return (

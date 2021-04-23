@@ -4,7 +4,13 @@ import App from './App';
 
 import 'semantic-ui-css/semantic.min.css'
 
+import { CookiesProvider } from "react-cookie";
+
+
+
 ReactDOM.render(
-    <App />,
+  <CookiesProvider>
+    <App />
+  </CookiesProvider>,
   document.getElementById('root')
 );

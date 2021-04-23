@@ -121,7 +121,7 @@ export default function CalendarPlugin() {
           gapi
             .client
             .calendar
-            .events
+            .events  
             .list({
               'calendarId': 'primary',
               'timeMin': (new Date()).toISOString(),
@@ -141,10 +141,10 @@ export default function CalendarPlugin() {
   }
 
   useEffect(() => {
+    //getEvents()
     const Day = new Date();
     setDate(`${Day.getFullYear()}-${Day.getMonth() + 1}-${Day.getDate()}`)
     setEndDate(`${Day.getFullYear()}-${Day.getMonth() + 1}-${Day.getDate()}`)
-    //console.log(Day.getMonth() + 1) getEvents()
   }, [])
 
   return (

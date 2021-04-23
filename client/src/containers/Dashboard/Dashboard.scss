@@ -1,25 +1,24 @@
+.DashboardBody {   
+    height: 100vh;
+    background-color: rgb(144, 46, 236);
+    font-family: 'Quicksand', sans-serif ;
 
-.DashboardBody {
-    
-    background-color: blueviolet;
-    
     section {
+        background-color: rgba(191, 30, 255, 0.486);
+        box-shadow: 0px 5px 6px rgba(32, 32, 32, 0.534);
         display: inline-flex;
-        border: 1px solid rgb(31, 31, 31);
         text-align: center;
-        box-shadow: 1px 2px 1px rgb(54, 54, 54);
         margin: 35px 15px;
         padding: 15px;
         max-width: 345px;
         border-radius: 10px;
-        background-color: rgba(247, 154, 255, 0.315);
-        color: rgb(60, 3, 114);
+        color: rgb(31, 1, 37);
 
         h2 {
-            width: 100% !important;
-            text-align: center !important;
-            font-family: 'Quicksand', sans-serif !important;
-
+            color: white;
+            font-family: 'Quicksand', sans-serif ;
+            text-align: center ;
+            width: 100% ;
         }
     }
 
@@ -30,31 +29,3 @@
     }
 }
 
-@media screen and (min-height: 600px) {
-    .DashboardBody {
-        min-height: 700px;
-    }
-}
-
-@media screen and (min-height: 700px) {
-    .DashboardBody {
-        min-height: 700px;
-    }
-}
-@media screen and (min-height: 720px) {
-        .DashboardBody {
-            min-height: 720px;
-        }
-}
-
-@media screen and (min-height: 760px) {
-    .DashboardBody {
-        min-height: 900px;
-    }
-}
-
-@media screen and (min-height: 900px) {
-    .DashboardBody {
-        min-height: 1000px;
-    }
-}

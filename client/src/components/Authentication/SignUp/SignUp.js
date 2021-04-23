@@ -66,7 +66,8 @@ export default function SignUp({setAuth}) {
   }, [])
 
   return (
-    <Container className="formContainer register">
+    <div className="AuthPages" >
+    <Container>
       <Link to="/"><img style={{height: '100px'}} src={Logo} alt=""/></Link>
       <div className="FormContainer" >
         <h1>Sign Up</h1>
@@ -107,5 +108,6 @@ export default function SignUp({setAuth}) {
         </Container>
       </div>
     </Container>
+    </div>
   )
 }

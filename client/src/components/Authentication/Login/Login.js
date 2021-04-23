@@ -4,8 +4,7 @@ import React, { useState, useEffect } from 'react'
 import {toast} from "react-toastify";
 import {
   Container,
-  Icon,
-  Grid
+  Icon
 } from 'semantic-ui-react'
 import '../Form.scss'
 
@@ -70,6 +69,7 @@ export default function Login({setAuth, setLoader}) {
   }, [])
 
   return (
+    <div className="AuthPages" >
     <Container >
     <Link to="/"><img style={{height: '100px'}} src={Logo} alt=""/></Link>
       <div className="FormContainer" >
@@ -101,5 +101,6 @@ export default function Login({setAuth, setLoader}) {
         </Container>
       </div>
   </Container>
+  </div>
   )
 }
