@@ -21,6 +21,7 @@ import SignUp from './components/Authentication/SignUp/SignUp'
 //pages
 import Dashboard from './containers/Dashboard/Dashboard'
 import Home from './containers/Home/Home';
+import CookiesPolicy from './containers/CookiesPolicy/CookiesPolicy';
 
 
 toast.configure()
@@ -59,7 +60,8 @@ function App() {
 
   useEffect(() => {
     isAuth();
-    handleCookie()
+    //handleCookie()
+    console.log(cookies.user)
   }, [])
 
   return (
@@ -71,6 +73,7 @@ function App() {
             <Route exact path="/signup" render={props => !isAuthenticated ? <SignUp {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
             <Route exact path="/dashboard" render={props =>  isAuthenticated ? <Dashboard {...props} setAuth={setAuth} /> : <Redirect to="/login" />}></Route>
             <Route exact path="/" render={props =>  !isAuthenticated ? <Home {...props} /> : <Redirect to="/dashboard" />}></Route>
+            <Route exact path="/cookies-policy" component={CookiesPolicy}></Route>
           </Switch>       
         </div>
       </Router>
