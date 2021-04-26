@@ -26,6 +26,44 @@ export default function ListTodos({allTodos, setTodosChange}) {
         }
     }
 
+    const updateToCompleted = async(e, id) => {
+        e.preventDefault();
+        try {
+         
+            const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/todos/true/${id}` : `http://localhost:5001/api/dashboard/todos/true/${id}`
+
+            await fetch(baseURL, {
+                method: "PUT",
+                headers: {token: localStorage.token},
+    
+            })
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    const updateToNotCompleted = async(e, id) => {
+        e.preventDefault();
+        try {
+         
+            const baseURL = process.env.NODE_ENV === 'production' ? `api/dashboard/todos/false/${id}` : `http://localhost:5001/api/dashboard/todos/false/${id}`
+
+            await fetch(baseURL, {
+                method: "PUT",
+                headers: {token: localStorage.token},
+    
+            })
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    let completedStyle = {
+        textDecoration: "line-through"
+    }
+
     useEffect(() => {
         setTodos(allTodos)
     }, [allTodos])
@@ -37,9 +75,10 @@ export default function ListTodos({allTodos, setTodosChange}) {
                {
                     todos.length !== 0 && todos[0].todo_id !== null && 
                     todos.map(todo => (
-                        <div className="todo" key={todo.todo_id}>
+                        <div className="todo"  style={todo.completed === true ? completedStyle : null} key={todo.todo_id} >
                             <p>{todo.description}</p> 
                             <EditTodo todo={todo} setTodosChange={setTodosChange} /> 
+                            <button onClick={(e) => todo.completed === true ? updateToNotCompleted(e, todo.todo_id) : updateToCompleted(e, todo.todo_id)}>C</button>
                             <Button color="red" className="Dbtn TodoButton"  icon="trash" onClick={() => deleteTodo(todo.todo_id)} />
                         </div>
                     ))

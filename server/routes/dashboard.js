@@ -7,12 +7,13 @@ router.get('/alltodos', authorization, async(req,res) => {
     try {
         const user = await pool.query(
             // add notes
-            "SELECT users.user_name, workspace_todo.todo_id, workspace_todo.description  FROM users LEFT JOIN workspace_todo ON users.user_id = workspace_todo.user_id WHERE users.user_id = $1",
+            "SELECT users.user_name, workspace_todo.todo_id, workspace_todo.description, completed  FROM users LEFT JOIN workspace_todo ON users.user_id = workspace_todo.user_id WHERE users.user_id = $1",
          [req.user.id]
          );
 
-        res.json(user.rows)
-
+         res.json(user.rows)
+        
+         
     } catch (error) {
         console.log(error.message)
         res.status(500).json("Server Error")
@@ -73,6 +74,47 @@ router.put("/todos/:id", authorization, async(req,res) => {
         console.log(error.message)
     }
 })
+
+// update todo's completed status to true
+
+router.put("/todos/true/:id", authorization, async(req, res) => {
+    try {
+
+        const { id } = req.params;
+        console.log(id)
+        const updateTodoStatus = await pool.query(
+            "UPDATE workspace_todo SET completed = true WHERE todo_id = $1 AND user_id = $2",
+            [ id, req.user.id]
+            );
+        if(updateTodoStatus.rows.length === 0){
+            return res.json("Can't do this bro...")
+        }
+        
+    } catch (error) {
+        console.log(error.message)
+    }
+})
+
+// update todo's completed status to false
+
+router.put("/todos/false/:id", authorization, async(req, res) => {
+    try {
+
+        const { id } = req.params;
+        console.log(id)
+        const updateTodoStatus = await pool.query(
+            "UPDATE workspace_todo SET completed = false WHERE todo_id = $1 AND user_id = $2",
+            [ id, req.user.id]
+            );
+        if(updateTodoStatus.rows.length === 0){
+            return res.json("Can't do this bro...")
+        }
+        
+    } catch (error) {
+        console.log(error.message)
+    }
+})
+
 
 // delete a todo
 router.delete("/todos/:id", authorization, async(req, res) => {
