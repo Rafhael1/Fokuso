@@ -15,9 +15,9 @@ import {Link} from "react-router-dom";
 export default function SignUp({setAuth}) {
 
   const [inputs,
-    setInputs] = useState({name: "", email: "", password: ""})
+    setInputs] = useState({name: "", email: "", password: "", confirmPassword: ""})
 
-  const {name, email, password} = inputs;
+  const {name, email, password, confirmPassword} = inputs;
 
   const onChange = (e) => {
     setInputs({
@@ -28,36 +28,40 @@ export default function SignUp({setAuth}) {
 
   const onSubmitForm = async(e) => {
     e.preventDefault()
-    try {
+    if(password != confirmPassword){
+      toast.warn("Passwords do not match!") 
+    } else {
+      try {
 
-      const body = {
-        name,
-        email,
-        password
-      };
-
-      const baseURL = process.env.NODE_ENV === 'production' ? "api/auth/register" : "http://localhost:5001/api/auth/register"
-
-      const response = await fetch(baseURL, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify(body)
-      })
-
-      const parseRes = await response.json()
-
-      if (parseRes.token) {
-        localStorage.setItem("token", parseRes.token)
-        toast.success("Registered Sucessfully, now you can login through the login page!")
-      } else {
-        setAuth(false);
-        toast.error(parseRes)
+        const body = {
+          name,
+          email,
+          password
+        };
+  
+        const baseURL = process.env.NODE_ENV === 'production' ? "api/auth/register" : "http://localhost:5001/api/auth/register"
+  
+        const response = await fetch(baseURL, {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify(body)
+        })
+  
+        const parseRes = await response.json()
+  
+        if (parseRes.token) {
+          localStorage.setItem("token", parseRes.token)
+          toast.success("Registered Sucessfully, now you can login through the login page!")
+        } else {
+          setAuth(false);
+          toast.error(parseRes)
+        }
+  
+      } catch (error) {
+        console.log(error.message)
       }
-
-    } catch (error) {
-      console.log(error.message)
     }
   }
 
@@ -100,6 +104,16 @@ export default function SignUp({setAuth}) {
                 placeholder="Password"
                 value={password}
                 name="password"
+                onChange={e => onChange(e)}
+                />
+            </div>
+            <div className="inputContainer">
+              <Icon name="lock" size="large" />
+              <input 
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                name="confirmPassword"
                 onChange={e => onChange(e)}
                 />
             </div>
