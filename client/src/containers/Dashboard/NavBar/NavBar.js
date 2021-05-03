@@ -9,11 +9,11 @@ import './NavBar.scss'
 import Logo from '../../../Images/Fokuso.png'
 
 // components
-import Quotes from '../../Quotes/Quotes'
-import Weather from '../../Weather/Weather'
+import Quotes from '../../../components/Quotes/Quotes'
+import Weather from '../../../components/Weather/Weather'
 
 
-export default function NavBar() {
+export default function NavBar({setCookie, cookies}) {
 
   const [name,
     setName] = useState("");
@@ -43,6 +43,7 @@ export default function NavBar() {
     }
   };
 
+
   useEffect(() => {
     getName()
   }, [])
@@ -51,7 +52,7 @@ export default function NavBar() {
     <nav className="DashboardNav" >    
       <img  className="Logo" src={Logo} alt="" />
       <Quotes/> 
-      <Weather/>
+      <Weather setCookie={setCookie} cookies={cookies} />
       <h3>Hello {name.length === 0 ? 'There' : name}!</h3>
     </nav>
   )

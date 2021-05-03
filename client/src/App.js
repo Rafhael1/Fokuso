@@ -28,7 +28,7 @@ toast.configure()
 
 function App() {
 
-  const [ cookies, setCookie ] = useCookies(["user"])
+  const [ cookies, setCookie ] = useCookies(["location"])
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -52,16 +52,9 @@ function App() {
     }
   }
 
-  const handleCookie = () => {
-    setCookie("user", "gowtham", {
-      path: "/"
-    });
-  }
-
   useEffect(() => {
     isAuth();
     //handleCookie()
-    console.log(cookies.user)
   }, [])
 
   return (
@@ -71,7 +64,7 @@ function App() {
          <Switch>
             <Route exact path="/login" render={props => !isAuthenticated  ? <Login {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
             <Route exact path="/signup" render={props => !isAuthenticated ? <SignUp {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
-            <Route exact path="/dashboard" render={props =>  isAuthenticated ? <Dashboard {...props} setAuth={setAuth} /> : <Redirect to="/login" />}></Route>
+            <Route exact path="/dashboard" render={props =>  isAuthenticated ? <Dashboard {...props} setAuth={setAuth} cookies={cookies} setCookie={setCookie} /> : <Redirect to="/login" />}></Route>
             <Route exact path="/" render={props =>  !isAuthenticated ? <Home {...props} /> : <Redirect to="/dashboard" />}></Route>
             <Route exact path="/cookies-policy" component={CookiesPolicy}></Route>
           </Switch>       

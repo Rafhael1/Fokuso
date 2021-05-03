@@ -24,15 +24,12 @@ export default function TodoComponent() {
       const parseData = await res.json();
 
       setAllTodos(parseData);
-      console.log(parseData)
 
 
     } catch (err) {
       console.error(err.message);
     }
   };
-
- 
 
   useEffect(() => {
     getProfile();

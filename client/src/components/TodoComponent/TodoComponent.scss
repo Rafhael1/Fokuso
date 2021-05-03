@@ -20,6 +20,8 @@
     flex-direction: row;
     display: flex;
     vertical-align: auto;
+    user-select: none;
+    transition: 0.5s;
 
     p {
         text-align: left;
@@ -34,4 +36,8 @@
         max-height: 37px !important;
     }
 
+}
+.todo:hover{
+    background-color: rgba(236, 236, 236, 0.589) ;
+    cursor: pointer;
 }

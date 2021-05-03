@@ -14,7 +14,7 @@ import Logo from '../../../Images/Fokuso.png'
 
 import {Link} from "react-router-dom";
 
-export default function Login({setAuth, setLoader}) {
+export default function Login({setAuth}) {
 
   const [inputs,
     setInputs] = useState({email: "", password: ""})
@@ -52,7 +52,9 @@ export default function Login({setAuth, setLoader}) {
       if (parseRes.jwtToken) {
         localStorage.setItem("token", parseRes.jwtToken);
         setAuth(true);
-        toast.success("Logged in Successfully");
+        toast.success("Logged in Successfully", {
+          autoClose: 2000
+        });
       } else {
         setAuth(false);
         toast.error(parseRes);

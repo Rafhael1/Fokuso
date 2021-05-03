@@ -10,11 +10,11 @@ import TodoComponent from '../../components/TodoComponent/TodoComponent'
 import NotesComponent from '../../components/NotesComponent/NotesComponent'
 import CalendarPlugin from '../../components/CalendarPlugin/CalendarPlugin'
 
-import NavBar from '../../components/UI/NavBar/NavBar'
+import NavBar from './NavBar/NavBar'
 
 import {toast} from "react-toastify"
 
-const Dashboard = ({setAuth}) => {
+const Dashboard = ({setAuth, setCookie, cookies}) => {
 
   const logout = async e => {
     e.preventDefault();
@@ -33,7 +33,7 @@ const Dashboard = ({setAuth}) => {
 
   return (
     <div className="DashboardBody">
-     <NavBar/>
+     <NavBar setCookie={setCookie} cookies={cookies} />
       <Container>
         <section>
           <TodoComponent/>

@@ -8,6 +8,12 @@ import { Button } from 'semantic-ui-react'
 export default function ListTodos({allTodos, setTodosChange}) {
 
     const [todos, setTodos] = useState([]);
+    const [value, setValue] = useState();
+
+    const refresh = ()=>{
+        // re-renders the component
+        setValue({});
+    }
 
     const deleteTodo = async(id) => {
         try {
@@ -61,7 +67,8 @@ export default function ListTodos({allTodos, setTodosChange}) {
     }
 
     let completedStyle = {
-        textDecoration: "line-through"
+        textDecoration: "line-through",
+        color: 'rgb(122, 122, 122)'
     }
 
     useEffect(() => {
@@ -74,11 +81,19 @@ export default function ListTodos({allTodos, setTodosChange}) {
                <div className="ListTodos">
                {
                     todos.length !== 0 && todos[0].todo_id !== null && 
-                    todos.map(todo => (
-                        <div className="todo"  style={todo.completed === true ? completedStyle : null} key={todo.todo_id} >
+                    todos.map(todo => 
+                    (
+                        <div 
+                                className="todo"  
+                                style={todo.completed === true ? completedStyle : null} 
+                                key={todo.todo_id} 
+                                onClick={
+                                (e) => {todo.completed === true ? updateToNotCompleted(e, todo.todo_id)  : updateToCompleted(e, todo.todo_id); 
+                                setTodosChange(true)
+                                }} 
+                                >
                             <p>{todo.description}</p> 
-                            <EditTodo todo={todo} setTodosChange={setTodosChange} /> 
-                            <button onClick={(e) => todo.completed === true ? updateToNotCompleted(e, todo.todo_id) : updateToCompleted(e, todo.todo_id)}>C</button>
+                            <EditTodo todo={todo} setTodosChange={setTodosChange} />
                             <Button color="red" className="Dbtn TodoButton"  icon="trash" onClick={() => deleteTodo(todo.todo_id)} />
                         </div>
                     ))
