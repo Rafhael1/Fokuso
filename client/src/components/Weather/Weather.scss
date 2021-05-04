@@ -6,9 +6,10 @@
     }
     .WeatherBox {
         border-radius: 10px;
-        background-color: rgba(65, 65, 65, 0.418);
+        background-color: rgba(37, 37, 37, 0.212);
         display: inline-block !important;
         position: relative !important;
+        box-shadow: 0px 3px 6px rgba(32, 32, 32, 0.534);
         margin: 0 20px;
         ul {
             margin: 0 !important;
@@ -24,15 +25,15 @@
             }
         }
         i {
-            position: absolute !important;
+            position: absolute ;
             margin-top: 3px;
-            top: 0 !important;
-            right:0 !important ; 
-            opacity: 40%;
+            top: 0 ;
+            right:0  ; 
+            opacity: 50%;
         }
         i:hover {
             opacity: 100%;
-            color: rgba(223, 65, 65, 0.534) !important;
+            color: rgba(223, 65, 65, 0.534) ;
         }
     }
 }

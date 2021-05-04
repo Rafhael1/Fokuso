@@ -89,7 +89,7 @@ export default function Weather({setCookie, cookies}) {
                         date.getHours() <= 12 ? <h4>{date.getHours()} am</h4> : null
                     }
                 </li>
-                <li><i onClick={setWeatherEmpty} ><Icon name="close" size="" /></i></li>
+                <li><i onClick={setWeatherEmpty} ><Icon name="close" /></i></li>
             </ul>
           </div>
         }

@@ -1,21 +1,23 @@
 .DashboardNav {
-    
+
+    background-image: linear-gradient(-225deg, #ed66ff70 0%, #d45ff865 53%, #a722ff71 100%);
+    box-shadow: 0px 2px 8px rgba(32, 32, 32, 0.534);
+    vertical-align: baseline;
+    width: 100%;
+    display: -webkit-inline-flex;
+    padding: 20px;
+    height: 103px;
+    color: white;
+
     .Quotes {
-        margin: 0 auto !important;
-        font-family: 'Quicksand', sans-serif !important;
+        margin: 0 auto;
+        font-family: 'Quicksand', sans-serif;
     }
+
     .Logo {
         position: relative;
         top: -15px;
         height: 100px;
     }
-
-    background-image: linear-gradient(-225deg, #f9c8ff70 0%, #d45ff865 53%, #a722ff71 100%);
-    vertical-align: baseline !important;
-    width: 100%;
-    display: -webkit-inline-flex  !important;
-    padding: 20px;
-    height: 103px;
-    color: white !important;
 
 }
