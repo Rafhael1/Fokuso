@@ -106,6 +106,7 @@ export default function Home() {
             </Grid>
           </section>
           <section className="footer" >
+            <Link to="/cookies-policy"><a>Cookies Policy</a></Link>
             <p>&copy; 2021 Fokuso.xyz, All rights reserved.</p>
           </section>
         </main>

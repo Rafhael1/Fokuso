@@ -49,5 +49,13 @@
             }
         }
     }
+    .footer {
+        a {
+            color: rgb(36, 36, 36);
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
