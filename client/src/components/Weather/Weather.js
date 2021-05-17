@@ -54,7 +54,7 @@ export default function Weather({setCookie, cookies}) {
   const date = new Date()
 
   useEffect(() => {
-    weatherFromCookies()
+    weatherFromCookies();
   }, [])
 
     return (
@@ -89,7 +89,7 @@ export default function Weather({setCookie, cookies}) {
                         date.getHours() <= 12 ? <h4>{date.getHours()} am</h4> : null
                     }
                 </li>
-                <li><i onClick={setWeatherEmpty} ><Icon name="close" /></i></li>
+                <li><i onClick={setWeatherEmpty} ><Icon name="window close" /></i></li>
             </ul>
           </div>
         }

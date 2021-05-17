@@ -14,7 +14,7 @@ import NavBar from './NavBar/NavBar'
 
 import {toast} from "react-toastify"
 
-const Dashboard = ({setAuth, setCookie, cookies}) => {
+const Dashboard = ({setAuth, setCookie, cookies, motion}) => {
 
   const logout = async e => {
     e.preventDefault();
@@ -32,6 +32,22 @@ const Dashboard = ({setAuth, setCookie, cookies}) => {
   })
 
   return (
+    <motion.div 
+    initial="initial"
+    animate="in"
+    exit="out"
+    transition={{ duration: 1 }}
+    variants={{ initial: {
+      opacity: 0,
+    },
+    in: {
+      opacity: 1,
+    },
+    out: {
+      opacity: 0,
+    }
+    }}
+    >
     <div className="DashboardBody">
      <NavBar setCookie={setCookie} cookies={cookies} />
       <Container>
@@ -51,6 +67,7 @@ const Dashboard = ({setAuth, setCookie, cookies}) => {
        </div>
      </footer>
     </div>
+    </motion.div>
   )
 }
 

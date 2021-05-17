@@ -14,7 +14,7 @@ import Logo from '../../../Images/Fokuso.png'
 
 import {Link} from "react-router-dom";
 
-export default function Login({setAuth}) {
+export default function Login({setAuth, motion}) {
 
   const [inputs,
     setInputs] = useState({email: "", password: ""})
@@ -71,6 +71,22 @@ export default function Login({setAuth}) {
   }, [])
 
   return (
+    <motion.div 
+    initial="initial"
+    animate="in"
+    exit="out"
+    transition={{ duration: 1 }}
+    variants={{ initial: {
+      opacity: 0,
+    },
+    in: {
+      opacity: 1,
+    },
+    out: {
+      opacity: 0,
+    }
+    }}
+    >
     <div className="AuthPages" >
     <Container >
     <Link to="/"><img style={{height: '100px'}} src={Logo} alt=""/></Link>
@@ -104,5 +120,6 @@ export default function Login({setAuth}) {
       </div>
   </Container>
   </div>
+  </motion.div>
   )
 }

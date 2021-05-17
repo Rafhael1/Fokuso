@@ -7,7 +7,6 @@ import Logo from '../../Images/Fokuso.png'
 
 import
 {
-  Button,
   Container,
   Menu,
   Grid,
@@ -21,13 +20,29 @@ import TaskList from '../../Images/Vector/task_list.svg'
 //Styles
 import './Home.scss'
 
-export default function Home() {
+export default function Home({motion}) {
 
   useEffect(() => {
     document.title = "Fokuso | Home"
   })
 
   return (
+    <motion.div 
+    initial="initial"
+    animate="in"
+    exit="out"
+    transition={{ duration: 1 }}
+    variants={{ initial: {
+      opacity: 0,
+    },
+    in: {
+      opacity: 1,
+    },
+    out: {
+      opacity: 0,
+    }
+    }}
+    >
     <div className="Home">
       <Container>
         <nav className="HomeNav" >
@@ -41,15 +56,15 @@ export default function Home() {
               <img className="Logo" src={Logo} alt=""/>
             </Menu.Item>
             <Menu.Item position='right'>
-              <Link to="/login"><Button inverted color="white" content="Login"/></Link>
-              <Link to="/signup"><Button color="purple" content="Sign Up"/></Link>
+              <Link to="/login"><button className="btn btn-outline" >Login</button></Link>
+              <Link to="/signup"><button className="btn" >Sign Up</button></Link>
             </Menu.Item>
           </Menu>
         </nav>
         <main>
           <section className="Sec1">
             <Grid columns={2} relaxed='very' verticalAlign='middle' stackable>
-              <Grid.Column>
+              <Grid.Column className="text-area" >
                 <h1>Fokuso helps people focus on what's important.</h1>
                 <h2>With Fokuso you don't need dozens of tabs open. You can manage your whole
                   day in just one tab.</h2>
@@ -72,29 +87,32 @@ export default function Home() {
                 }}/>
               </Grid.Column>
 
-              <Grid.Column verticalAlign='middle'>
+              <Grid.Column verticalAlign='middle' className="text-area" >
                 <h1>Features</h1>
-                <h2>With Fouso you can manage your:
+                <h2>With Fokuso you can manage your:
                 </h2>
                 <ul>
                   <li>Todos</li>
                   <li>Notes</li>
                   <li>Calendar</li>
+                  <li>Weather</li>
+                  <li>Quotes(for inspiration)</li>
                 </ul>
                 <h2>and there's also a weather app inside of your dashboard and a quotes
-                  generator, to keep ou inspired and motivated.</h2>
+                  generator, to keep you inspired and motivated.</h2>
               </Grid.Column>
             </Grid>
           </section>
           <section className="Sec2">
             <Grid columns={2} relaxed='very' verticalAlign='middle' stackable>
-              <Grid.Column>
+              <Grid.Column >
                 <h2>
                   So waste no more time and sign up!
                 </h2>
-                <Link to="/signup"><Button icon="signup" color="purple" content="Sign Up" size="huge"/></Link>
+                <Link to="/signup">     
+                  <button className="btn" style={{margin: '0 auto'}}>Sign Up</button>
+                </Link>
               </Grid.Column>
-
               <Grid.Column verticalAlign='middle'>
                 <img
                   src={ManLaptop}
@@ -106,12 +124,12 @@ export default function Home() {
             </Grid>
           </section>
           <section className="footer" >
-            <Link to="/cookies-policy"><a>Cookies Policy</a></Link>
+            <Link to="/cookies-policy"><h5>Cookies Policy</h5></Link>
             <p>&copy; 2021 Fokuso.xyz, All rights reserved.</p>
           </section>
         </main>
       </Container>
     </div>
-
+    </motion.div> 
   )
 }

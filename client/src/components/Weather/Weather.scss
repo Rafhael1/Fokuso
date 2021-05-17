@@ -7,8 +7,8 @@
     .WeatherBox {
         border-radius: 10px;
         background-color: rgba(37, 37, 37, 0.212);
-        display: inline-block !important;
-        position: relative !important;
+        display: inline-block ;
+        position: relative ;
         box-shadow: 0px 3px 6px rgba(32, 32, 32, 0.534);
         margin: 0 20px;
         ul {
@@ -25,11 +25,10 @@
             }
         }
         i {
-            position: absolute ;
-            margin-top: 3px;
-            top: 0 ;
-            right:0  ; 
-            opacity: 50%;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            opacity: 30%;
         }
         i:hover {
             opacity: 100%;

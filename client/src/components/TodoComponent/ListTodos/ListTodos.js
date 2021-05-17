@@ -8,12 +8,6 @@ import { Button } from 'semantic-ui-react'
 export default function ListTodos({allTodos, setTodosChange}) {
 
     const [todos, setTodos] = useState([]);
-    const [value, setValue] = useState();
-
-    const refresh = ()=>{
-        // re-renders the component
-        setValue({});
-    }
 
     const deleteTodo = async(id) => {
         try {

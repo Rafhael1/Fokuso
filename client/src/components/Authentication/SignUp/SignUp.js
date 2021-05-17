@@ -12,7 +12,7 @@ import Logo from '../../../Images/Fokuso.png'
 
 import {Link} from "react-router-dom";
 
-export default function SignUp({setAuth}) {
+export default function SignUp({setAuth, motion}) {
 
   const [inputs,
     setInputs] = useState({name: "", email: "", password: "", confirmPassword: ""})
@@ -28,7 +28,7 @@ export default function SignUp({setAuth}) {
 
   const onSubmitForm = async(e) => {
     e.preventDefault()
-    if(password != confirmPassword){
+    if(password !== confirmPassword){
       toast.warn("Passwords do not match!") 
     } else {
       try {
@@ -70,6 +70,22 @@ export default function SignUp({setAuth}) {
   }, [])
 
   return (
+    <motion.div
+    initial="initial"
+    animate="in"
+    exit="out"
+    transition={{ duration: 1 }}
+    variants={{ initial: {
+      opacity: 0,
+    },
+    in: {
+      opacity: 1,
+    },
+    out: {
+      opacity: 0,
+    }
+    }}
+    >
     <div className="AuthPages" >
     <Container>
       <Link to="/"><img style={{height: '100px'}} src={Logo} alt=""/></Link>
@@ -123,5 +139,6 @@ export default function SignUp({setAuth}) {
       </div>
     </Container>
     </div>
+    </motion.div>
   )
 }

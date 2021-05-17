@@ -23,6 +23,8 @@ import Dashboard from './containers/Dashboard/Dashboard'
 import Home from './containers/Home/Home';
 import CookiesPolicy from './containers/CookiesPolicy/CookiesPolicy';
 
+import { motion, AnimatePresence } from "framer-motion"
+
 
 toast.configure()
 
@@ -60,15 +62,15 @@ function App() {
   return (
      <div className="App">
       <Router>
-        <div>
+        <AnimatePresence>
          <Switch>
-            <Route exact path="/login" render={props => !isAuthenticated  ? <Login {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
-            <Route exact path="/signup" render={props => !isAuthenticated ? <SignUp {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
-            <Route exact path="/dashboard" render={props =>  isAuthenticated ? <Dashboard {...props} setAuth={setAuth} cookies={cookies} setCookie={setCookie} /> : <Redirect to="/login" />}></Route>
-            <Route exact path="/" render={props =>  !isAuthenticated ? <Home {...props} /> : <Redirect to="/dashboard" />}></Route>
+            <Route exact path="/login" render={props => !isAuthenticated  ? <Login motion={motion} {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
+            <Route exact path="/signup" render={props => !isAuthenticated ? <SignUp motion={motion} {...props} setAuth={setAuth} /> : <Redirect to="/dashboard" /> }></Route>
+            <Route exact path="/dashboard" render={props =>  isAuthenticated ? <Dashboard motion={motion} {...props} setAuth={setAuth} cookies={cookies} setCookie={setCookie} /> : <Redirect to="/login" />}></Route>
+            <Route exact path="/" render={props =>  !isAuthenticated ? <Home motion={motion} {...props} /> : <Redirect to="/dashboard" />}></Route>
             <Route exact path="/cookies-policy" component={CookiesPolicy}></Route>
           </Switch>       
-        </div>
+        </AnimatePresence>
       </Router>
     </div>
   )

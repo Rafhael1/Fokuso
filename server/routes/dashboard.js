@@ -81,7 +81,6 @@ router.put("/todos/true/:id", authorization, async(req, res) => {
     try {
 
         const { id } = req.params;
-        console.log(id)
         const updateTodoStatus = await pool.query(
             "UPDATE workspace_todo SET completed = true WHERE todo_id = $1 AND user_id = $2",
             [ id, req.user.id]
