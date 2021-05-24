@@ -7,7 +7,6 @@ CREATE TABLE users(
     user_name VARCHAR(255) NOT NULL,
     user_email VARCHAR(255) NOT NULL UNIQUE,
     user_password VARCHAR(255) NOT NULL,
-    completed BOOLEAN,
     PRIMARY KEY (user_id)
 );
 
@@ -16,6 +15,7 @@ CREATE TABLE workspace_todo(
     user_id UUID,
     description VARCHAR(255) NOT NULL,
     PRIMARY KEY (todo_id),
+    completed BOOLEAN,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 

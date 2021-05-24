@@ -15,7 +15,10 @@
         border-radius: 10px;
         color: rgb(31, 1, 37);
         overflow-y: scroll;
+        overflow-x: hidden;
         max-height: 72vh;
+        scrollbar-color:rgba(148, 78, 161, 0.432) #c2d2e400;
+        scrollbar-width: 2px;
 
         h2 {
             color: white;
