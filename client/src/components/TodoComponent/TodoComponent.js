@@ -8,8 +8,10 @@ import './TodoComponent.scss'
 
 export default function TodoComponent() {
 
+  // States
   const [allTodos, setAllTodos] = useState([]);
   const [todosChange, setTodosChange] = useState(false);
+  const [ skeleton, setSkeleton ] = useState(false);
 
   const getProfile = async () => {
     try {
@@ -39,8 +41,8 @@ export default function TodoComponent() {
     return (
         <div>
             <h2>To do</h2>
-            <InputTodo setTodosChange={setTodosChange} />
-            <ListTodos allTodos={allTodos} setTodosChange={setTodosChange} />
+            <InputTodo setTodosChange={setTodosChange} setSkeleton={setSkeleton} />
+            <ListTodos allTodos={allTodos} setTodosChange={setTodosChange} skeleton={skeleton} />
         </div>
     )
 }

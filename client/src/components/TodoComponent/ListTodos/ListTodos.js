@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-
 import EditTodo from '../EditTodo/EditTodo';
 
-import { Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react';
 
-export default function ListTodos({allTodos, setTodosChange}) {
+// Skeleton Loading Effect
+import { SkeletonBlock } from "skeleton-elements/react";
+
+export default function ListTodos({allTodos, setTodosChange, skeleton}) {
 
     const [todos, setTodos] = useState([]);
 
@@ -70,9 +72,9 @@ export default function ListTodos({allTodos, setTodosChange}) {
     }, [allTodos])
 
     return (
-        <div className="ListTodos" >
+        <div >
             <div>
-               <div className="ListTodos">
+               <div>
                {
                     todos.length !== 0 && todos[0].todo_id !== null && 
                     todos.map(todo => 
@@ -92,6 +94,7 @@ export default function ListTodos({allTodos, setTodosChange}) {
                         </div>
                     ))
                 }
+                { skeleton ? <SkeletonBlock tag="div" width="320px" height="57px" borderRadius="5px" effect="wave" /> : null }
                </div>
             </div>
         </div>

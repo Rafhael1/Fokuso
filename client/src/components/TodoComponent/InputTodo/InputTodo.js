@@ -4,13 +4,13 @@ import {toast} from "react-toastify";
 
 import {Input} from 'semantic-ui-react'
 
-export default function InputTodo({setTodosChange}) {
+export default function InputTodo({setTodosChange, setSkeleton}) {
 
-  const [description,
-    setDescription] = useState('');
+  const [ description, setDescription ] = useState('');
 
   const onSubmitForm = async e => {
     e.preventDefault();
+    setSkeleton(true);
     if (description.length === 0) {
       toast.dark("👁👅👁 Type something before adding!", {
         position: "top-center",
@@ -21,6 +21,7 @@ export default function InputTodo({setTodosChange}) {
         draggable: true,
         progress: undefined
       });
+      setSkeleton(false);
     } else {
       try {
 
@@ -45,6 +46,7 @@ export default function InputTodo({setTodosChange}) {
         await response.json()
 
         setTodosChange(true)
+        setSkeleton(false);
         setDescription('')
 
       } catch (err) {
