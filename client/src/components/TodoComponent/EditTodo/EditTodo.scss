@@ -3,12 +3,19 @@
 }
 
 .Ebtn {
+    cursor: pointer;
     opacity: 0;
-    transition: 0.5s !important;
+    transition: 0.5s ;
+    background-color: rgb(238, 238, 164);
+    border-radius: 5px;
 }
+.Ebtn:hover{
+    background-color: rgb(246, 248, 126) !important;
+}
+
 .Dbtn {
     opacity: 0;
-    transition: 0.5s !important;
+    transition: 0.5s ;
 }
 
 .ListTodos:hover {

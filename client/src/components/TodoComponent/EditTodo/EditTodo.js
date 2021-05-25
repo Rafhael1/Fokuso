@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Modal, Input } from 'semantic-ui-react'
+import { Modal, Input, Icon, Button } from 'semantic-ui-react'
 
 import './EditTodo.scss'
 
@@ -57,13 +57,11 @@ export default function EditTodo({todo, setTodosChange}) {
 
     return (
         <div>
-      <Button
+      <button
        data-target={`#id${todo.todo_id}`} 
-       icon="edit"
-       color="yellow"
        className="Ebtn"
        onClick={() => dispatch({ type: 'open', size: 'tiny' })}
-       />
+       ><Icon name="edit" /></button>
       <Modal
         size={size}
         open={open}
