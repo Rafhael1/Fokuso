@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 
+// Style
+
 import './App.scss';
 
 // react toastify
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
-
 
 // cookies
 
@@ -18,24 +19,30 @@ import { useCookies } from "react-cookie"
 import Login from './components/Authentication/Login/Login'
 import SignUp from './components/Authentication/SignUp/SignUp'
 
-//pages
+//routes
+
 import Dashboard from './containers/Dashboard/Dashboard'
 import Home from './containers/Home/Home';
 import CookiesPolicy from './containers/CookiesPolicy/CookiesPolicy';
 
+// Transitions
 import { motion, AnimatePresence } from "framer-motion"
 
-
+// Toast Config (this one has to stay here in this order)
 toast.configure()
 
 function App() {
 
+  // States
   const [ cookies, setCookie ] = useCookies(["location"])
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const setAuth = (boolean) => {setIsAuthenticated(boolean)}
+  //
+  const setAuth = (boolean) => {
+    setIsAuthenticated(boolean)
+  }
 
+  // Verifies whether the user is already authenticated or not
   const isAuth = async() => {
     try {
 
@@ -54,9 +61,9 @@ function App() {
     }
   }
 
+  //
   useEffect(() => {
     isAuth();
-    //handleCookie()
   }, [])
 
   return (

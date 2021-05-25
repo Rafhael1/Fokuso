@@ -5,16 +5,21 @@ import './Weather.scss'
 import { Input, Icon } from 'semantic-ui-react'
 
 // weather icons
+
 import Rain from '../../Images/Weather/rain.svg'
 import Cloud from '../../Images/Weather/cloud.svg'
 import Snow from '../../Images/Weather/snow.svg'
 import Sun from '../../Images/Weather/sun.svg'
 import Null from '../../Images/Weather/null.svg'
 
+
 export default function Weather({setCookie, cookies}) {
+
+  // States
   const [query, setQuery] = useState(cookies.location || '')
   const [weather, setWeather] = useState({})
 
+  //
   const getWeather = async e => {
     e.preventDefault();
     try {
@@ -32,6 +37,7 @@ export default function Weather({setCookie, cookies}) {
     }
   }
 
+  // If user has used the weather app already it will automatically get the data/location
   const weatherFromCookies = async() => {
     try {
       const API_KEY = process.env.REACT_APP_API_KEY
@@ -44,6 +50,7 @@ export default function Weather({setCookie, cookies}) {
     }
   }
 
+  // When the user presses the close button
   const setWeatherEmpty = () => {
     setWeather({})
     setCookie("location", "", {
@@ -51,8 +58,10 @@ export default function Weather({setCookie, cookies}) {
     })
   }
 
+  // Date 
   const date = new Date()
 
+  //
   useEffect(() => {
     weatherFromCookies();
   }, [])
@@ -60,7 +69,7 @@ export default function Weather({setCookie, cookies}) {
     return (
       <div className="Weather">
         {
-          weather.name === undefined
+          !weather.name
           ? 
            <form onSubmit={(e) => getWeather(e)}>
               <Input
