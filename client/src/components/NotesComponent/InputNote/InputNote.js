@@ -4,13 +4,13 @@ import {toast} from "react-toastify";
 
 import { Input } from 'semantic-ui-react'
 
-export default function InputNote({setNotesChange}) {
+export default function InputNote({setNotesChange, setSkeleton}) {
 
-  const [description,
-    setDescription] = useState('')
+  const [ description, setDescription ] = useState('')
 
   const onFormSubmit = async e => {
     e.preventDefault();
+    setSkeleton(true);
     if (description.length === 0) {
       toast.dark("👁👄👁 Type something before adding!", {
         position: "top-center",
@@ -21,6 +21,7 @@ export default function InputNote({setNotesChange}) {
         draggable: true,
         progress: undefined
       });
+      setSkeleton(false);
     } else {
       try {
         const myHeader = new Headers()
@@ -40,10 +41,11 @@ export default function InputNote({setNotesChange}) {
           body: JSON.stringify(body)
         })
 
-        await response.json()
+        await response.json();
 
-        setNotesChange(true)
-        setDescription('')
+        setNotesChange(true);
+        setSkeleton(false);
+        setDescription('');
 
       } catch (error) {
         console.log(error.message)

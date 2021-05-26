@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Modal, Input } from 'semantic-ui-react'
-import './EditNote.scss'
+import { Button, Modal, Input, Icon } from 'semantic-ui-react'
 
 export default function EditNote({note, setNotesChange}) {
 
@@ -55,15 +54,14 @@ export default function EditNote({note, setNotesChange}) {
       /////////////////////////////////
 
     return (
-        <div>
-      <Button
+    <>
+      <button
        data-target={`#id${note.note_id}`} 
-       icon="edit"
-       color="yellow"
        className="Ebtn"
        onClick={() => dispatch({ type: 'open', size: 'tiny' })}
        >
-      </Button>
+         <Icon name="edit" />
+      </button>
 
       <Modal
         size={size}
@@ -93,6 +91,6 @@ export default function EditNote({note, setNotesChange}) {
           </Button>
         </Modal.Actions>
       </Modal>
-        </div>
+    </>
     )
 }

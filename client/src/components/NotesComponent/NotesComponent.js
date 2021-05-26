@@ -9,9 +9,12 @@ import './NotesComponent.scss'
 
 export default function NotesComponent() {
 
-    const [allNotes, setAllNotes] = useState([]);
+  // States
+  const [allNotes, setAllNotes] = useState([]);
   const [notesChange, setNotesChange] = useState(false);
+  const [ skeleton, setSkeleton ] = useState(false);
 
+  //
   const getProfile = async () => {
     try {
 
@@ -41,8 +44,8 @@ export default function NotesComponent() {
     return (
         <div>
             <h2>Notes</h2>
-            <InputNote setNotesChange={setNotesChange} />
-            <ListNotes allNotes={allNotes} setNotesChange={setNotesChange} />
+            <InputNote setNotesChange={setNotesChange} setSkeleton={setSkeleton} />
+            <ListNotes allNotes={allNotes} setNotesChange={setNotesChange} skeleton={skeleton} />
         </div>
     )
 }

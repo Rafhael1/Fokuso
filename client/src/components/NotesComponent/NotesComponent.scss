@@ -1,11 +1,3 @@
-.ListNotes {
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        font-size: 16px;
-    }
-}
 
 .note {
     background-color: rgba(250, 250, 250, 0.884) ;
@@ -26,13 +18,29 @@
         margin-right: 5px;
         padding: 9px 0px 0px 0px;
         font-size: 16px;
+        width: 90%;
     }
 
     button {
-        position: sticky;
-        z-index: 10;
-        max-height: 37px !important;
+        min-height: 100%;
+        border: 0px;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0;
+        transition: 0.5s ;
+        margin: 0 2px;
     }
 
+    button:hover {
+        opacity: 1;
+    }
+
+    .Ebtn {
+        background-color: rgb(240, 240, 122);
+    }
+
+    .Dbtn {
+        background-color: rgb(241, 104, 95);
+    }
 
 }

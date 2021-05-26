@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 
 import { Modal, Input, Icon, Button } from 'semantic-ui-react'
 
-import './EditTodo.scss'
-
 export default function EditTodo({todo, setTodosChange}) {
 
     const [description, setDescription] = useState(todo.description);
@@ -56,12 +54,14 @@ export default function EditTodo({todo, setTodosChange}) {
       /////////////////////////////////
 
     return (
-        <div>
-      <button
-       data-target={`#id${todo.todo_id}`} 
-       className="Ebtn"
-       onClick={() => dispatch({ type: 'open', size: 'tiny' })}
-       ><Icon name="edit" /></button>
+    <div>
+        <button
+        data-target={`#id${todo.todo_id}`} 
+        className="Ebtn"
+        onClick={() => dispatch({ type: 'open', size: 'tiny' })}
+        >
+          <Icon name="edit"  />
+        </button>
       <Modal
         size={size}
         open={open}
@@ -90,6 +90,6 @@ export default function EditTodo({todo, setTodosChange}) {
           </Button>
         </Modal.Actions>
       </Modal>
-        </div>
+    </div>
     )
 }

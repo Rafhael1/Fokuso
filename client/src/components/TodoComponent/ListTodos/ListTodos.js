@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import EditTodo from '../EditTodo/EditTodo';
 
-import { Button } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
 // Skeleton Loading Effect
 import { SkeletonBlock } from "skeleton-elements/react";
@@ -90,7 +90,7 @@ export default function ListTodos({allTodos, setTodosChange, skeleton}) {
                                 >
                             <p>{todo.description}</p> 
                             <EditTodo todo={todo} setTodosChange={setTodosChange} />
-                            <Button color="red" className="Dbtn TodoButton"  icon="trash" onClick={() => deleteTodo(todo.todo_id)} />
+                            <button className="Dbtn" onClick={() => deleteTodo(todo.todo_id)} > <Icon name="trash" /> </button>
                         </div>
                     ))
                 }

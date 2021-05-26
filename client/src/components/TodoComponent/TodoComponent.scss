@@ -25,10 +25,28 @@
     button {
         min-height: 100%;
         border: 0px;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0;
+        transition: 0.5s ;
+        margin: 0 2px;
+    }
+    
+    button:hover {
+        opacity: 1;
     }
 
-}
-.todo:hover{
-    background-color: rgba(236, 236, 236, 0.589) ;
-    cursor: pointer;
+    .Ebtn {
+        background-color: rgb(240, 240, 122);
+    }
+
+    .Dbtn {
+        background-color: rgb(241, 104, 95);
+    }
+
+    .todo:hover{
+        background-color: rgba(236, 236, 236, 0.589) ;
+        cursor: pointer;
+    }
+    
 }

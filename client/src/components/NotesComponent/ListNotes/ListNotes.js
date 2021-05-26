@@ -1,13 +1,17 @@
 import React, {useEffect, useState} from 'react'
 
+//
 import EditNote from '../../NotesComponent/EditNote/EditNote'
 
-import { Button } from 'semantic-ui-react'
+//
+import { Icon } from 'semantic-ui-react'
 
-export default function ListNotes({allNotes, setNotesChange}) {
+// Skeleton Loading Effect
+import { SkeletonBlock } from "skeleton-elements/react";
 
-  const [notes,
-    setNotes] = useState([])
+export default function ListNotes({allNotes, setNotesChange, skeleton}) {
+
+  const [ notes, setNotes ] = useState([])
 
   const deleteNote = async id => {
     try {
@@ -32,21 +36,24 @@ export default function ListNotes({allNotes, setNotesChange}) {
     setNotes(allNotes)
 }, [allNotes])
 
-
   return (
     <div>
       <div>
-        <div className="ListNotes" >
+        <div>
         {
           notes.length !== 0 && notes[0].note_id !== null &&
           notes.map(note => (
-            <div className="note" key={note.note_id} >
+            <div 
+              className="note" 
+              key={note.note_id} 
+            >
               <p>{note.description}</p>
               <EditNote note={note} className="Ebtn" setNotesChange={setNotesChange} />
-              <Button color="red" className="Dbtn"  icon="trash" onClick={() => deleteNote(note.note_id)} />
+              <button className="Dbtn" onClick={() => deleteNote(note.note_id)}><Icon name="trash" /></button>
             </div>
           ))  
         }
+        { skeleton ? <SkeletonBlock tag="div" width="320px" height="57px" borderRadius="5px" effect="wave" /> : null }
         </div>
       </div>
     </div>
