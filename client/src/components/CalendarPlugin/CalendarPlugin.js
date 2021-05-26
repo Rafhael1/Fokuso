@@ -14,19 +14,20 @@ import {toast} from "react-toastify";
 
 export default function CalendarPlugin() {
   
+  // Api info
   const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
   const CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID
 
+  // Date
+
+  const Day = new Date();
+
+  // States
   const [open,setOpen] = React.useState(false) // Modal
-
-  const [date,setDate] = useState('')
-
-  const [endDate,setEndDate] = useState('')
-
+  const [date,setDate] = useState(`${Day.getFullYear()}-${Day.getMonth() + 1}-${Day.getDate()}`)
+  const [endDate,setEndDate] = useState(`${Day.getFullYear()}-${Day.getMonth() + 1}-${Day.getDate()}`)
   const [title,setTitle] = useState('')
-
   const [events,setEvents] = useState([])
-
   const [logged,setLogged] = useState(false)
 
   let gapi = window.gapi
@@ -141,10 +142,7 @@ export default function CalendarPlugin() {
   }
 
   useEffect(() => {
-    //getEvents()
-    const Day = new Date();
-    setDate(`${Day.getFullYear()}-${Day.getMonth() + 1}-${Day.getDate()}`)
-    setEndDate(`${Day.getFullYear()}-${Day.getMonth() + 1}-${Day.getDate()}`)
+    //const Day = new Date();
   }, [])
 
   return (
