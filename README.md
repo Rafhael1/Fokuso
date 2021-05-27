@@ -68,7 +68,7 @@ Then, in the server folder, run -> yarn run dev.
 </tr>
 <tr style="font-size: 18px;"
 >
- <td>React-loader-spinner</td>
+ <td>Framer-motion</td>
  <td></td>
 </tr>
 
